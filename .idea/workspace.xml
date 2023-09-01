@@ -13,10 +13,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/back/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/back/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/back/settings.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/BackApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/backApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/entity/Url.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/entity/Url.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/test/java/com/chobutton/back/BackApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/test/java/com/chobutton/back/backApplicationTests.java" afterDir="false" />
     </list>
@@ -45,8 +47,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -116,7 +119,7 @@
       <option name="presentableId" value="Default" />
       <updated>1693558163213</updated>
       <workItem from="1693558165032" duration="49000" />
-      <workItem from="1693558554962" duration="4734000" />
+      <workItem from="1693558554962" duration="9266000" />
     </task>
     <servers />
   </component>
