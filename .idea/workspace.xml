@@ -7,18 +7,25 @@
     <list default="true" id="d4715fbe-03ef-458e-88a1-f84853288d54" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/UrlShortener.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/back.main.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/back/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/back/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/back/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/BackApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/backApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/test/java/com/chobutton/back/BackApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/test/java/com/chobutton/back/backApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/backApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/backApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/dto/UrlDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/dto/UrlDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/entity/Url.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/entity/Url.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/repository/UrlRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/repository/UrlRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/service/UrlService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/service/UrlService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/service/UrlServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/service/UrlServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/test/java/com/chobutton/back/backApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/test/java/com/chobutton/back/backApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/test/java/com/chobutton/back/service/UrlServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/test/java/com/chobutton/back/service/UrlServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +40,9 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$/back">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand />
@@ -45,8 +55,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -72,38 +83,112 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/toy_project/URL shortener/UrlShortener/back/src/main/resources",
+    "last_opened_file_path": "D:/toy_project/URL shortener/UrlShortener/back/src/test/java",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gant",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\toy_project\URL shortener\UrlShortener\back\src\test\java" />
       <recent name="D:\toy_project\URL shortener\UrlShortener\back\src\main\resources" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.chobutton.back.dto" />
+    </key>
   </component>
-  <component name="RunManager">
-    <configuration name="BackApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="back.main" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.chobutton.back.BackApplication" />
+  <component name="RunManager" selected="JUnit.UrlServiceTest">
+    <configuration name="UrlServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="back.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.chobutton.back.*" />
+          <option name="PATTERN" value="com.chobutton.back.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.chobutton.back.service" />
+      <option name="MAIN_CLASS_NAME" value="com.chobutton.back.service.UrlServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UrlServiceTest.deleteByIdTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="back.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.chobutton.back.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.chobutton.back.service" />
+      <option name="MAIN_CLASS_NAME" value="com.chobutton.back.service.UrlServiceTest" />
+      <option name="METHOD_NAME" value="deleteByIdTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UrlServiceTest.findAllByUser_IdTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="back.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.chobutton.back.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.chobutton.back.service" />
+      <option name="MAIN_CLASS_NAME" value="com.chobutton.back.service.UrlServiceTest" />
+      <option name="METHOD_NAME" value="findAllByUser_IdTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UrlServiceTest.findByOriginUrlTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="back.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.chobutton.back.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.chobutton.back.service" />
+      <option name="MAIN_CLASS_NAME" value="com.chobutton.back.service.UrlServiceTest" />
+      <option name="METHOD_NAME" value="findByOriginUrlTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UrlServiceTest.urlDecodingTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="back.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.chobutton.back.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.chobutton.back.service" />
+      <option name="MAIN_CLASS_NAME" value="com.chobutton.back.service.UrlServiceTest" />
+      <option name="METHOD_NAME" value="urlDecodingTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.BackApplication" />
+        <item itemvalue="JUnit.UrlServiceTest" />
+        <item itemvalue="JUnit.UrlServiceTest.deleteByIdTest" />
+        <item itemvalue="JUnit.UrlServiceTest.urlDecodingTest" />
+        <item itemvalue="JUnit.UrlServiceTest.findByOriginUrlTest" />
+        <item itemvalue="JUnit.UrlServiceTest.findAllByUser_IdTest" />
       </list>
     </recent_temporary>
   </component>
@@ -116,7 +201,7 @@
       <option name="presentableId" value="Default" />
       <updated>1693558163213</updated>
       <workItem from="1693558165032" duration="49000" />
-      <workItem from="1693558554962" duration="4734000" />
+      <workItem from="1693558554962" duration="24452000" />
     </task>
     <servers />
   </component>
