@@ -35,4 +35,9 @@ public class Url {
         this.user = user;
         this.originUrl = originUrl;
     }
+
+    // 접속횟수 증가를 위한 메서드 추가
+    public void incrementRequestCount() {
+        this.requestCount += 1;
+    }
 }
