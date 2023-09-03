@@ -54,15 +54,46 @@ public class UrlServiceTest {
 
     @Test
     @Transactional
-    @DisplayName("http://originURL2.com로 조회할경우 id가 2인 데이터가 조회된다")
-    public void findByOriginUrlTest(){
+    @DisplayName("http://originURL2.com로 조회할경우 base52인코딩을 실시하여 인코딩된 값을 리턴한다")
+    public void urlEncodingTest(){
         //given
         String originUrl = "http://originURL2.com";
+        String result = "j";
 
         //when
-        UrlDTO url = urlService.findByOriginUrl(originUrl);
+        String shortenUrl = urlService.urlEncoding(originUrl);
 
         //then
-        assertThat(url.getId()).isEqualTo(2);
+        assertThat(shortenUrl).isEqualTo(result);
+    }
+
+    @Test
+    @Transactional
+    @DisplayName("shortenUrl j가 전달될 경우 http://originURL2.com을 리턴한다.")
+    public void urlDecodingTest(){
+        //given
+        String originUrl = "http://originURL2.com";
+        String shortenUrl = "j";
+
+        //when
+        String redirectUrl = urlService.urlDecoding(shortenUrl);
+
+        //then
+        assertThat(redirectUrl).isEqualTo(originUrl);
+    }
+
+    @Test
+    @Transactional
+    @DisplayName("id 2번이 삭제될경우 전체 데이터의 크기는 4개일것이다.")
+    public void deleteByIdTest(){
+        //given
+        int id = 2;
+
+        //when
+        urlService.deleteById(id);
+        List<UrlDTO> urlList = urlService.findAll();
+
+        //then
+        assertThat(urlList.size()).isEqualTo(4);
     }
 }

@@ -3,6 +3,7 @@ package com.chobutton.back.service;
 import com.chobutton.back.dto.UrlDTO;
 import com.chobutton.back.entity.Url;
 import com.chobutton.back.repository.UrlRepository;
+import com.chobutton.back.util.Base56Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,8 +38,20 @@ public class UrlServiceImpl implements UrlService{
 
     // originUrl로 접속시 DB에 해당하는 데이터의 PK를 불러와 인코딩을 하기 위한 기능
     @Override
-    public UrlDTO findByOriginUrl(String originUrl) {
-        return null;
+    public String urlEncoding(String originUrl) {
+        Url url = urlRepository.findByOriginUrl(originUrl);
+        UrlDTO urlDTO = fromUrlEntityForFind(url);
+        int originUrlId = urlDTO.getId();
+        String shortUrl = Base56Util.base56Encoding(originUrlId);
+        return shortUrl;
+    }
+
+    // shortenUrl이 전달될때 디코딩하여 Id값을 리턴해주는 메서드
+    @Override
+    public String urlDecoding(String shortenUrl) {
+        int originUrlId = Base56Util.base56Decoding(shortenUrl);
+        String originUrl = urlRepository.findById(originUrlId).get().getOriginUrl();
+        return originUrl;
     }
 
     @Override
@@ -53,7 +66,7 @@ public class UrlServiceImpl implements UrlService{
 
     @Override
     public void deleteById(int id) {
-
+        urlRepository.deleteById(id);
     }
 
 
@@ -82,13 +95,14 @@ public class UrlServiceImpl implements UrlService{
                 .build();
     }
 
-    // UrlResponseDTO.Save 객체를 Entity로 변환해주는 메서드
-
-    // UserRepository 구현후 기능 추가
-//    public Url toUrlEntityForSave(UrlDTO urlDTO){
-//
-//        return new Url(userRepositoy.findById(urlDTO.getUserId()), urlDTO.getOriginUrl());
+    // UrlDTO 객체를 Entity로 변환해주는 메서드
+    // User의 FindById가 필요하기 때문에 추후 구현
+//    public static Url toEntityForSave(UrlDTO urlDTO){
+//        return Url.builder()
+//                .user(urlDTO.getUserId())
+//                .originUrl(urlDTO.getOriginUrl())
+//                .requestCount(0)
+//                .build();
 //    }
-
 
 }
