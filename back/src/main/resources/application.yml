@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: db
+    active: db,jwt
   datasource:
     # DB
     url: ${url}
@@ -15,3 +15,7 @@ spring:
       hibernate:
         format_sql: true
     show-sql: true
+
+jwt:
+  issuer: ${issuer}
+  secret_key: ${secret_key}

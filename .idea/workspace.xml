@@ -5,26 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4715fbe-03ef-458e-88a1-f84853288d54" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/UrlShortener.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/back.main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/back/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/back/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/back/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/backApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/backApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/dto/UrlDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/dto/UrlDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/entity/Url.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/entity/Url.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/backApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/BackApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/config/BasicSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/config/BasicSecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/enums/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/enums/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/repository/UrlRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/repository/UrlRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/test/java/com/chobutton/back/backApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/test/java/com/chobutton/back/backApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/test/java/com/chobutton/back/backApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/test/java/com/chobutton/back/BackApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +34,12 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="back" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -82,20 +77,21 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/toy_project/URL shortener/UrlShortener/back/src/test/java",
+    "last_opened_file_path": "D:/toy_project/URL shortener/UrlShortener/back/src/main/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "spring.configuration.checksum": "d506a6f836e4c5be7e0ec4824f4c7fd3",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\toy_project\URL shortener\UrlShortener\back\src\test\java" />
       <recent name="D:\toy_project\URL shortener\UrlShortener\back\src\main\resources" />
+      <recent name="D:\toy_project\URL shortener\UrlShortener\back\src\test\java" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.chobutton.back.dto" />
@@ -181,6 +177,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="BackApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="back.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.chobutton.back.BackApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.UrlServiceTest" />
@@ -200,7 +203,11 @@
       <option name="presentableId" value="Default" />
       <updated>1693558163213</updated>
       <workItem from="1693558165032" duration="49000" />
-      <workItem from="1693558554962" duration="28964000" />
+      <workItem from="1693558554962" duration="29318000" />
+      <workItem from="1693796675868" duration="46000" />
+      <workItem from="1693796749249" duration="18000" />
+      <workItem from="1693811609648" duration="619000" />
+      <workItem from="1693996064164" duration="3681000" />
     </task>
     <servers />
   </component>

@@ -27,7 +27,7 @@ public class User implements UserDetails {
 
     // RFC 5321 규정에 근거하여 최대 이메일 주소 길이 산정
     // 로컬파트 최대 64문자, 도메인파트 최대 255문자, @ 포함 320문자
-    @Column(length = 320, unique = true)
+    @Column(length = 320, unique = true, nullable = false)
     private String email;
 
     @Column(length = 12)
