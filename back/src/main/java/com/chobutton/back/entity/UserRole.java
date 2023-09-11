@@ -18,9 +18,8 @@ public class UserRole {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @Column(nullable = false)
+    private int userId;
 
     @Enumerated(EnumType.STRING) // ENUM값을 문자로 저장해주는 어노테이션
     @Column(length = 10)
