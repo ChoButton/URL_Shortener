@@ -12,7 +12,7 @@ public interface UrlService {
     List<UrlDTO> findAll();
 
     // user별 등록한 URL을 조회하기 위한 기능
-    List<UrlDTO> findAllByUser_Id(int userId);
+    List<UrlDTO> findAllByUserId(int userId);
 
     // originUrl로 접속시 DB에 해당하는 데이터의 PK를 불러와 인코딩후 shortenUrl을 리턴하는 기능
     String urlEncoding(String originUrl);

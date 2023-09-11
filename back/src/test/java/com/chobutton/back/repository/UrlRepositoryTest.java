@@ -29,7 +29,7 @@ public class UrlRepositoryTest {
         String index2Url = "http://originURL3.com";
 
         //when
-        List<Url> urlList =urlRepository.findAllByUser_Id(userId);
+        List<Url> urlList =urlRepository.findAllByUserId(userId);
 
         //then
         assertThat(urlList.size()).isEqualTo(3);

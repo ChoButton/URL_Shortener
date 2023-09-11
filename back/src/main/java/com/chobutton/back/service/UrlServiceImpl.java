@@ -30,8 +30,8 @@ public class UrlServiceImpl implements UrlService{
 
     // user별 등록한 URL을 조회하기 위한 기능
     @Override
-    public List<UrlDTO> findAllByUser_Id(int userId) {
-        List<Url> urlList = urlRepository.findAllByUser_Id(userId);
+    public List<UrlDTO> findAllByUserId(int userId) {
+        List<Url> urlList = urlRepository.findAllByUserId(userId);
         List<UrlDTO> urlDTOList = fromUrlEntityForFindAll(urlList);
         return urlDTOList;
     }
@@ -77,7 +77,7 @@ public class UrlServiceImpl implements UrlService{
     public static UrlDTO fromUrlEntityForFind(Url url){
         return UrlDTO.builder()
                 .id(url.getId())
-                .userId(url.getUser().getId())
+                .userId(url.getUserId())
                 .originUrl(url.getOriginUrl())
                 .requestCount(url.getRequestCount())
                 .build();
