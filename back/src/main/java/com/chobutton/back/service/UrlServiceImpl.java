@@ -6,6 +6,7 @@ import com.chobutton.back.repository.UrlRepository;
 import com.chobutton.back.util.Base56Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,6 +22,7 @@ public class UrlServiceImpl implements UrlService{
     }
 
     // UrlEntity를 불러와 UrlDTO형대로 변환하는 로직 추가
+    @Transactional
     @Override
     public List<UrlDTO> findAll() {
         List<Url> urlList = urlRepository.findAll();
@@ -29,14 +31,16 @@ public class UrlServiceImpl implements UrlService{
     }
 
     // user별 등록한 URL을 조회하기 위한 기능
+    @Transactional
     @Override
-    public List<UrlDTO> findAllByUser_Id(int userId) {
-        List<Url> urlList = urlRepository.findAllByUser_Id(userId);
+    public List<UrlDTO> findAllByUserId(int userId) {
+        List<Url> urlList = urlRepository.findAllByUserId(userId);
         List<UrlDTO> urlDTOList = fromUrlEntityForFindAll(urlList);
         return urlDTOList;
     }
 
     // originUrl로 접속시 DB에 해당하는 데이터의 PK를 불러와 인코딩을 하기 위한 기능
+    @Transactional
     @Override
     public String urlEncoding(String originUrl) {
         Url url = urlRepository.findByOriginUrl(originUrl);
@@ -47,6 +51,7 @@ public class UrlServiceImpl implements UrlService{
     }
 
     // shortenUrl이 전달될때 디코딩하여 Id값을 리턴해주는 메서드
+    @Transactional
     @Override
     public String urlDecoding(String shortenUrl) {
         int originUrlId = Base56Util.base56Decoding(shortenUrl);
@@ -77,7 +82,7 @@ public class UrlServiceImpl implements UrlService{
     public static UrlDTO fromUrlEntityForFind(Url url){
         return UrlDTO.builder()
                 .id(url.getId())
-                .userId(url.getUser().getId())
+                .userId(url.getUserId())
                 .originUrl(url.getOriginUrl())
                 .requestCount(url.getRequestCount())
                 .build();

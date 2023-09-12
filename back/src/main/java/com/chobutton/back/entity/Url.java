@@ -19,9 +19,8 @@ public class Url {
     @Column(nullable = false)
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @Column(nullable = false)
+    private int userId;
 
     @Column(nullable = false, length = 2000)
     private String originUrl;
@@ -29,12 +28,6 @@ public class Url {
     @ColumnDefault("0")
     private int requestCount;
 
-
-    // save 기능을 위한 인스턴스 멤버변수인 User를 입력하기 위한 생성자
-    public Url(User user, String originUrl) {
-        this.user = user;
-        this.originUrl = originUrl;
-    }
 
     // 접속횟수 증가를 위한 메서드 추가
     public void incrementRequestCount() {

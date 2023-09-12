@@ -44,7 +44,7 @@ public class UrlServiceTest {
         String index2Url = "http://originURL3.com";
 
         //when
-        List<UrlDTO> urlList = urlService.findAllByUser_Id(userId);
+        List<UrlDTO> urlList = urlService.findAllByUserId(userId);
 
         //then
         assertThat(urlList.size()).isEqualTo(3);
