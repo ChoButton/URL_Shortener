@@ -106,4 +106,42 @@ public class UserRoleServiceTest {
         assertThat(userRoleDTOS.get(userRoleDTOS.size()-1).getUserId()).isEqualTo(userId);
         assertThat(userRoleDTOS.get(userRoleDTOS.size()-1).getRole()).isEqualTo(role);
     }
+
+    @Test
+    @Transactional
+    @DisplayName("전체 권한 리스트중 1번 권한을 삭제하면 총 권한의 갯수는 7개" +
+            "1번 유저의 권한은 1개이다.")
+    public void deleteByIdTest(){
+        //given
+        int id = 1;
+        int userId = 1;
+
+        //when
+        userRoleService.deleteById(id);
+
+        List<UserRoleDTO> userRoleDTOS = userRoleService.findAll();
+        List<UserRoleDTO> userId1DTO = userRoleService.findAllByUserId(userId);
+
+        //then
+        assertThat(userRoleDTOS.size()).isEqualTo(7);
+        assertThat(userId1DTO.size()).isEqualTo(1);
+    }
+
+    @Test
+    @Transactional
+    @DisplayName("1번 유저의 권한을 모두 삭제할 경우 1번 유저의 권한 데이터는 없을 겂이고" +
+            "전체 권한 갯수는 6개일 것이다.")
+    public void deleteAllByUserIdTest(){
+        //given
+        int userId = 1;
+
+        //when
+        userRoleService.deleteAllByUserId(userId);
+        List<UserRoleDTO> userRoleDTOS = userRoleService.findAll();
+        List<UserRoleDTO> user1Roles = userRoleService.findAllByUserId(userId);
+
+        //then
+        assertThat(userRoleDTOS.size()).isEqualTo(6);
+        assertThat(user1Roles).isEmpty();
+    }
 }

@@ -9,6 +9,7 @@ import com.chobutton.back.repository.UserRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -28,6 +29,7 @@ public class UserRoleServiceImpl implements UserRoleService{
 
     // 유저의 권한정보를 불러올 경우 Enum타입의 role를 Enum안쪽의 getName 메서드를 통해
     // roleName 리스트로 리턴
+    @Transactional
     @Override
     public List<String> getRolesName(int userId) {
         List<UserRole> userRoles = userRoleRepository.findAllByUserId(userId);
@@ -36,6 +38,7 @@ public class UserRoleServiceImpl implements UserRoleService{
                 .collect(Collectors.toList());
     }
 
+    @Transactional
     @Override
     public void save(UserRoleDTO userRoleDTO) {
         // 추후 다른 검증 로직이 추가될 경우를 대비해 정상적이지 않은 권한을 확인하는 if문으로 작성
@@ -48,6 +51,7 @@ public class UserRoleServiceImpl implements UserRoleService{
         userRoleRepository.save(userRole);
     }
 
+    @Transactional
     @Override
     public List<UserRoleDTO> findAll() {
 
@@ -56,6 +60,7 @@ public class UserRoleServiceImpl implements UserRoleService{
         return fromUserRoleEntityForFindAll(userRoleList);
     }
 
+    @Transactional
     @Override
     public List<UserRoleDTO> findAllByUserId(int userId) {
 
@@ -64,12 +69,23 @@ public class UserRoleServiceImpl implements UserRoleService{
         return fromUserRoleEntityForFindAll(userRoleList);
     }
 
+    @Transactional
     @Override
     public UserRoleDTO findById(int id) {
 
         UserRole userRole = userRoleRepository.findById(id).get();
 
         return fromUserRoleEntityForFind(userRole);
+    }
+
+    @Override
+    public void deleteById(int id) {
+        userRoleRepository.deleteById(id);
+    }
+
+    @Override
+    public void deleteAllByUserId(int userId) {
+        userRoleRepository.deleteAllByUserId(userId);
     }
 
 

@@ -18,4 +18,8 @@ public interface UserRoleService {
     List<UserRoleDTO> findAllByUserId(int userId);
 
     UserRoleDTO findById(int id);
+
+    void deleteById(int id);
+
+    void deleteAllByUserId(int userId);
 }

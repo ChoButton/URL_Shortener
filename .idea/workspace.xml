@@ -5,23 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4715fbe-03ef-458e-88a1-f84853288d54" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/dto/UserRoleDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/repository/UserRoleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/service/UserRoleService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/service/UserRoleServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/src/test/java/com/chobutton/back/repository/UserRepositoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/src/test/java/com/chobutton/back/repository/UserRoleRepositoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/src/test/java/com/chobutton/back/service/UserRoleServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/config/jwt/JwtProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/config/jwt/JwtProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/config/jwt/TokenProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/config/jwt/TokenProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/repository/UrlRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/repository/UrlRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/service/UrlService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/service/UrlService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/repository/UserRoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/repository/UserRoleRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/service/UrlServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/service/UrlServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/service/UsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/service/UsersService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/test/java/com/chobutton/back/repository/UrlRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/test/java/com/chobutton/back/repository/UrlRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/test/java/com/chobutton/back/service/UrlServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/test/java/com/chobutton/back/service/UrlServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/service/UserRoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/service/UserRoleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/service/UserRoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/service/UserRoleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/test/java/com/chobutton/back/repository/UserRoleRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/test/java/com/chobutton/back/repository/UserRoleRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/test/java/com/chobutton/back/service/UserRoleServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/test/java/com/chobutton/back/service/UserRoleServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +96,23 @@
       <recent name="com.chobutton.back.dto" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserRoleServiceTest">
+  <component name="RunManager" selected="JUnit.UserRoleRepositoryTest.deleteAllByUserIdTest">
+    <configuration name="UserRoleRepositoryTest.deleteAllByUserIdTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="back.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.chobutton.back.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.chobutton.back.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.chobutton.back.repository.UserRoleRepositoryTest" />
+      <option name="METHOD_NAME" value="deleteAllByUserIdTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="UserRoleServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="back.test" />
       <extension name="coverage">
@@ -121,7 +128,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserRoleServiceTest.findAllByUserIdTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserRoleServiceTest.deleteAllByUserIdTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="back.test" />
       <extension name="coverage">
         <pattern>
@@ -131,13 +138,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.chobutton.back.service" />
       <option name="MAIN_CLASS_NAME" value="com.chobutton.back.service.UserRoleServiceTest" />
-      <option name="METHOD_NAME" value="findAllByUserIdTest" />
+      <option name="METHOD_NAME" value="deleteAllByUserIdTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserRoleServiceTest.findAllTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserRoleServiceTest.deleteByIdTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="back.test" />
       <extension name="coverage">
         <pattern>
@@ -147,23 +154,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.chobutton.back.service" />
       <option name="MAIN_CLASS_NAME" value="com.chobutton.back.service.UserRoleServiceTest" />
-      <option name="METHOD_NAME" value="findAllTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserRoleServiceTest.findByIdTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="back.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.chobutton.back.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.chobutton.back.service" />
-      <option name="MAIN_CLASS_NAME" value="com.chobutton.back.service.UserRoleServiceTest" />
-      <option name="METHOD_NAME" value="findByIdTest" />
+      <option name="METHOD_NAME" value="deleteByIdTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -194,11 +185,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserRoleRepositoryTest.deleteAllByUserIdTest" />
+        <item itemvalue="JUnit.UserRoleServiceTest.deleteAllByUserIdTest" />
+        <item itemvalue="JUnit.UserRoleServiceTest.deleteByIdTest" />
         <item itemvalue="JUnit.UserRoleServiceTest" />
         <item itemvalue="JUnit.UserRoleServiceTest.saveTest" />
-        <item itemvalue="JUnit.UserRoleServiceTest.findByIdTest" />
-        <item itemvalue="JUnit.UserRoleServiceTest.findAllTest" />
-        <item itemvalue="JUnit.UserRoleServiceTest.findAllByUserIdTest" />
       </list>
     </recent_temporary>
   </component>
@@ -219,7 +210,8 @@
       <workItem from="1694062076835" duration="12000" />
       <workItem from="1694074922520" duration="2956000" />
       <workItem from="1694321974406" duration="731000" />
-      <workItem from="1694407536586" duration="16346000" />
+      <workItem from="1694407536586" duration="16502000" />
+      <workItem from="1694486010912" duration="1957000" />
     </task>
     <servers />
   </component>
