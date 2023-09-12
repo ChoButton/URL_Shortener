@@ -79,7 +79,7 @@ public class UrlServiceImpl implements UrlService{
     // DTO 변환 메서드
 
     // Entity를 DTO로 변환하여 불러오는 메서드 정의
-    public static UrlDTO fromUrlEntityForFind(Url url){
+    private static UrlDTO fromUrlEntityForFind(Url url){
         return UrlDTO.builder()
                 .id(url.getId())
                 .userId(url.getUserId())
@@ -88,13 +88,13 @@ public class UrlServiceImpl implements UrlService{
                 .build();
     }
     // Entity List를 DTO로 변환하여 불러오는 메서드 정의
-    public static List<UrlDTO> fromUrlEntityForFindAll(List<Url> urlList){
+    private static List<UrlDTO> fromUrlEntityForFindAll(List<Url> urlList){
         return urlList.stream()
                 .map(UrlServiceImpl::fromUrlEntityForFind)
                 .collect(Collectors.toList());
     }
     // Entity를 DTO로 변환하여 불러오는 메서드 정의
-    public static UrlDTO fromUrlEntityForEncoding(Url url){
+    private static UrlDTO fromUrlEntityForEncoding(Url url){
         return UrlDTO.builder()
                 .id(url.getId())
                 .build();
@@ -102,7 +102,7 @@ public class UrlServiceImpl implements UrlService{
 
     // UrlDTO 객체를 Entity로 변환해주는 메서드
     // User의 FindById가 필요하기 때문에 추후 구현
-//    public static Url toEntityForSave(UrlDTO urlDTO){
+//    private static Url toEntityForSave(UrlDTO urlDTO){
 //        return Url.builder()
 //                .user(urlDTO.getUserId())
 //                .originUrl(urlDTO.getOriginUrl())

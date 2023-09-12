@@ -29,7 +29,7 @@ public class User implements UserDetails {
     @Column(length = 320, unique = true, nullable = false)
     private String email;
 
-    @Column(length = 12)
+    @Column(length = 100)
     private String password;
 
     // 외래키 사용하지 않아 유저 엔터티에서는 빈 권한 정보를 리턴해줌
@@ -67,5 +67,10 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    // 비밀번호 변경을 위한 메소드
+    public void updatePassword(String newPassword) {
+        this.password = newPassword;
     }
 }

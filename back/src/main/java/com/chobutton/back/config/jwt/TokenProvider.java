@@ -25,6 +25,7 @@ public class TokenProvider {
     private final UsersService usersService;
 
     private final UserRoleService userRoleService;
+
     private String makeToken(Date expiry, User user){
         // 현재시간 기준으로 토큰 발급 날짜 저장
         Date now = new Date();
