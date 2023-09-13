@@ -141,4 +141,18 @@ public class UrlServiceTest {
         assertThat(updatedUrlDTO.getOriginUrl()).isEqualTo(newUrl);
         assertThat(updatedUrlDTO.getId()).isEqualTo(id);
     }
+
+    @Test
+    @Transactional
+    @DisplayName("test1@test.com 이메일로 url을 조회할경우 1번유저가 등록한 url 3개가 조회될 것이다.")
+    public void findAllByUserEmailTest(){
+        //given
+        String email = "test1@test.com";
+
+        //when
+        List<UrlDTO> urlDTOList = urlService.findAllByUserEmail(email);
+
+        //then
+        assertThat(urlDTOList.size()).isEqualTo(3);
+    }
 }

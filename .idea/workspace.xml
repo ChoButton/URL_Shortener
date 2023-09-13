@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d4715fbe-03ef-458e-88a1-f84853288d54" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/entity/Url.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/entity/Url.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/config/BasicSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/config/BasicSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/service/UrlService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/service/UrlService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/service/UrlServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/service/UrlServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/test/java/com/chobutton/back/service/UrlServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/test/java/com/chobutton/back/service/UrlServiceTest.java" afterDir="false" />
     </list>
@@ -92,8 +93,40 @@
       <recent name="com.chobutton.back.dto" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UrlServiceTest.updateTest">
-    <configuration name="UrlServiceTest.saveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.UrlControllerTest.findAllByUserEmailForAdminTest">
+    <configuration name="UrlControllerTest.findAllByUserEmailForAdminTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="back.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.chobutton.back.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.chobutton.back.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.chobutton.back.controller.UrlControllerTest" />
+      <option name="METHOD_NAME" value="findAllByUserEmailForAdminTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UrlControllerTest.findAllUrlsForAdminTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="back.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.chobutton.back.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.chobutton.back.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.chobutton.back.controller.UrlControllerTest" />
+      <option name="METHOD_NAME" value="findAllUrlsForAdminTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UrlServiceTest.findAllByUserEmailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="back.test" />
       <extension name="coverage">
         <pattern>
@@ -103,7 +136,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.chobutton.back.service" />
       <option name="MAIN_CLASS_NAME" value="com.chobutton.back.service.UrlServiceTest" />
-      <option name="METHOD_NAME" value="saveTest" />
+      <option name="METHOD_NAME" value="findAllByUserEmailTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -125,50 +158,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UsersServiceTest.deleteById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="back.test의 전부" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="back.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.chobutton.back.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.chobutton.back.service" />
-      <option name="MAIN_CLASS_NAME" value="com.chobutton.back.service.UsersServiceTest" />
-      <option name="METHOD_NAME" value="deleteById" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UsersServiceTest.saveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="back.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.chobutton.back.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.chobutton.back.service" />
-      <option name="MAIN_CLASS_NAME" value="com.chobutton.back.service.UsersServiceTest" />
-      <option name="METHOD_NAME" value="saveTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UsersServiceTest.updateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="back.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.chobutton.back.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.chobutton.back.service" />
-      <option name="MAIN_CLASS_NAME" value="com.chobutton.back.service.UsersServiceTest" />
-      <option name="METHOD_NAME" value="updateTest" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -182,11 +175,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UrlControllerTest.findAllByUserEmailForAdminTest" />
+        <item itemvalue="JUnit.UrlControllerTest.findAllUrlsForAdminTest" />
+        <item itemvalue="JUnit.UrlServiceTest.findAllByUserEmailTest" />
+        <item itemvalue="JUnit.back.test의 전부" />
         <item itemvalue="JUnit.UrlServiceTest.updateTest" />
-        <item itemvalue="JUnit.UrlServiceTest.saveTest" />
-        <item itemvalue="JUnit.UsersServiceTest.updateTest" />
-        <item itemvalue="JUnit.UsersServiceTest.saveTest" />
-        <item itemvalue="JUnit.UsersServiceTest.deleteById" />
       </list>
     </recent_temporary>
   </component>
@@ -211,7 +204,7 @@
       <workItem from="1694486010912" duration="4504000" />
       <workItem from="1694491667797" duration="9000" />
       <workItem from="1694491730627" duration="16104000" />
-      <workItem from="1694582818783" duration="4449000" />
+      <workItem from="1694582818783" duration="11604000" />
     </task>
     <servers />
   </component>

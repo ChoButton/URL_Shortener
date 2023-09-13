@@ -2,7 +2,9 @@ package com.chobutton.back.service;
 
 import com.chobutton.back.dto.UrlDTO;
 import com.chobutton.back.entity.Url;
+import com.chobutton.back.entity.User;
 import com.chobutton.back.repository.UrlRepository;
+import com.chobutton.back.repository.UserRepository;
 import com.chobutton.back.util.Base56Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,13 +17,15 @@ import java.util.stream.Collectors;
 public class UrlServiceImpl implements UrlService{
 
     UrlRepository urlRepository;
+    UserRepository userRepository;
 
     @Autowired
-    public UrlServiceImpl(UrlRepository urlRepository){
+    public UrlServiceImpl(UrlRepository urlRepository,
+                          UserRepository userRepository){
         this.urlRepository = urlRepository;
+        this.userRepository = userRepository;
     }
 
-    // UrlEntity를 불러와 UrlDTO형대로 변환하는 로직 추가
     @Transactional
     @Override
     public List<UrlDTO> findAll() {
@@ -30,7 +34,7 @@ public class UrlServiceImpl implements UrlService{
         return urlDTOList;
     }
 
-    // user별 등록한 URL을 조회하기 위한 기능
+    // user의 id를 이용하여 등록한 URL을 조회하기 위한 기능
     @Transactional
     @Override
     public List<UrlDTO> findAllByUserId(int userId) {
@@ -38,6 +42,18 @@ public class UrlServiceImpl implements UrlService{
         List<UrlDTO> urlDTOList = fromUrlEntityForFindAll(urlList);
         return urlDTOList;
     }
+
+    // 관리자의 유저별 등록 URL검색 기능을 위해 유저의 email을 통해 조회하는 기능
+    @Transactional
+    @Override
+    public List<UrlDTO> findAllByUserEmail(String email){
+        User user = userRepository.findByEmail(email);
+        int userId = user.getId();
+        List<Url> urlList = urlRepository.findAllByUserId(userId);
+        List<UrlDTO> urlDTOList = fromUrlEntityForFindAll(urlList);
+        return urlDTOList;
+    }
+
 
     // originUrl로 접속시 DB에 해당하는 데이터의 PK를 불러와 인코딩을 하기 위한 기능
     @Transactional

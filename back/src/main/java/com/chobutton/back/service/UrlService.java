@@ -14,6 +14,9 @@ public interface UrlService {
     // user별 등록한 URL을 조회하기 위한 기능
     List<UrlDTO> findAllByUserId(int userId);
 
+    // 관리자의 유저별 등록 URL검색 기능을 위해 유저의 email을 통해 조회하는 기능
+    List<UrlDTO> findAllByUserEmail(String email);
+
     // originUrl로 접속시 DB에 해당하는 데이터의 PK를 불러와 인코딩후 shortenUrl을 리턴하는 기능
     String urlEncoding(String originUrl);
 
