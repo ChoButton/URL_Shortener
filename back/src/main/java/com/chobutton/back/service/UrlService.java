@@ -23,7 +23,7 @@ public interface UrlService {
     // shortenUrl이 전달될 경우 originUrl을 리턴해주는 기능
     String urlDecoding(String shortenUrl);
 
-    public void save(UrlDTO urlDTO);
+    public String save(UrlDTO urlDTO);
 
     public void update(UrlDTO urlDTO);
 

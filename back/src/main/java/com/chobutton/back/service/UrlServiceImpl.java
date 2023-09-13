@@ -55,7 +55,7 @@ public class UrlServiceImpl implements UrlService{
     }
 
 
-    // originUrl로 접속시 DB에 해당하는 데이터의 PK를 불러와 인코딩을 하기 위한 기능
+    // originUrl입력시 DB에 해당하는 데이터의 PK를 불러와 인코딩을 하기 위한 기능
     @Transactional
     @Override
     public String urlEncoding(String originUrl) {
@@ -63,23 +63,28 @@ public class UrlServiceImpl implements UrlService{
         UrlDTO urlDTO = fromUrlEntityForFind(url);
         int originUrlId = urlDTO.getId();
         String shortUrl = Base56Util.base56Encoding(originUrlId);
-        url.incrementRequestCount();
         return shortUrl;
     }
 
-    // shortenUrl이 전달될때 디코딩하여 Id값을 리턴해주는 메서드
+    // shortenUrl이 전달될때 디코딩하여 Id값을 리턴후 해당 Id값으로 originUrl을 리턴해주는 기능
     @Transactional
     @Override
     public String urlDecoding(String shortenUrl) {
         int originUrlId = Base56Util.base56Decoding(shortenUrl);
         String originUrl = urlRepository.findById(originUrlId).get().getOriginUrl();
+        // originUrl로 접속시 접속수 +1
+        urlRepository.findById(originUrlId).get().incrementRequestCount();
         return originUrl;
     }
 
+    //URL 등록후 바로 단축된URL을 확인할수 있도록 단축된 URL리턴
     @Transactional
     @Override
-    public void save(UrlDTO urlDTO) {
-         urlRepository.save(toEntityForSave(urlDTO));
+    public String save(UrlDTO urlDTO) {
+        urlRepository.save(toEntityForSave(urlDTO));
+        List<Url> urlList = urlRepository.findAllByUserId(urlDTO.getUserId());
+        int urlId = urlList.get(urlList.size()-1).getId();
+        return Base56Util.base56Encoding(urlId);
     }
 
     @Override
@@ -104,6 +109,7 @@ public class UrlServiceImpl implements UrlService{
                 .userId(url.getUserId())
                 .originUrl(url.getOriginUrl())
                 .requestCount(url.getRequestCount())
+                .shortenUrl("localhost:8080/shortnee/" + Base56Util.base56Encoding(url.getId()))
                 .build();
     }
     // Entity List를 DTO로 변환하여 불러오는 메서드 정의
@@ -127,5 +133,4 @@ public class UrlServiceImpl implements UrlService{
                 .requestCount(0)
                 .build();
     }
-
 }

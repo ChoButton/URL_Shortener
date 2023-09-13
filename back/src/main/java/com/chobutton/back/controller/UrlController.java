@@ -4,21 +4,18 @@ import com.chobutton.back.dto.UrlDTO;
 import com.chobutton.back.service.UrlService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @AllArgsConstructor
 @RequestMapping("/url")
 public class UrlController {
 
     private UrlService urlService;
 
-    // 관리자용 기능 ------------------------------------------------------------
+    // 관리자용 기능 -----------------------------------------------------------------------------------
     @RequestMapping(value = "/admin/all", method = RequestMethod.GET)
     public ResponseEntity<List<UrlDTO>> findAllUrlsForAdmin(){
         List<UrlDTO> urlList = urlService.findAll();
@@ -31,4 +28,31 @@ public class UrlController {
         return ResponseEntity.ok(urlList);
     }
 
+    @RequestMapping(value = "/admin/update", method = RequestMethod.PATCH)
+    public ResponseEntity<String> updateUrlForAdmin(@RequestBody UrlDTO urlDTO){
+        urlService.update(urlDTO);
+        return ResponseEntity.ok("등록된 URL 수정이 완료되었습니다.");
+    }
+
+    // 사용자용 기능 -----------------------------------------------------------------------------------
+
+    // URL등록후 바로 단축된 URL을 확인할수 있도록 body에 단축된 URL을 같이 리턴함
+    @RequestMapping(value = "/user/create", method = RequestMethod.POST)
+    public ResponseEntity<String> createShortenUrl(@RequestBody UrlDTO urlDTO){
+        String shortenUrl = urlService.save(urlDTO);
+        return ResponseEntity.ok(shortenUrl);
+    }
+
+    @RequestMapping(value = "/user/all/{userId}", method = RequestMethod.GET)
+    public ResponseEntity<List<UrlDTO>> findAllByUserIdForUser(@PathVariable int userId){
+        List<UrlDTO> urlList = urlService.findAllByUserId(userId);
+        return ResponseEntity.ok(urlList);
+    }
+
+    // 공용 기능 -------------------------------------------------------------------------------------
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<String> deleteById(@PathVariable int id){
+        urlService.deleteById(id);
+        return ResponseEntity.ok("등록된 URL이 삭제되었습니다.");
+    }
 }
