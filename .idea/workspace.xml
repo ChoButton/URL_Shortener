@@ -6,13 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d4715fbe-03ef-458e-88a1-f84853288d54" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/repository/UserRoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/repository/UserRoleRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/service/UrlServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/service/UrlServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/service/UserRoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/service/UserRoleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/service/UserRoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/service/UserRoleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/test/java/com/chobutton/back/repository/UserRoleRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/test/java/com/chobutton/back/repository/UserRoleRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/test/java/com/chobutton/back/service/UserRoleServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/test/java/com/chobutton/back/service/UserRoleServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,24 +89,24 @@
       <recent name="com.chobutton.back.dto" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserRoleRepositoryTest.deleteAllByUserIdTest">
-    <configuration name="UserRoleRepositoryTest.deleteAllByUserIdTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.UsersServiceTest.updateTest">
+    <configuration name="UsersServiceTest.deleteById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="back.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.chobutton.back.repository.*" />
+          <option name="PATTERN" value="com.chobutton.back.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.chobutton.back.repository" />
-      <option name="MAIN_CLASS_NAME" value="com.chobutton.back.repository.UserRoleRepositoryTest" />
-      <option name="METHOD_NAME" value="deleteAllByUserIdTest" />
+      <option name="PACKAGE_NAME" value="com.chobutton.back.service" />
+      <option name="MAIN_CLASS_NAME" value="com.chobutton.back.service.UsersServiceTest" />
+      <option name="METHOD_NAME" value="deleteById" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserRoleServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UsersServiceTest.findByEmailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="back.test" />
       <extension name="coverage">
         <pattern>
@@ -122,29 +115,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.chobutton.back.service" />
-      <option name="MAIN_CLASS_NAME" value="com.chobutton.back.service.UserRoleServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserRoleServiceTest.deleteAllByUserIdTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="back.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.chobutton.back.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.chobutton.back.service" />
-      <option name="MAIN_CLASS_NAME" value="com.chobutton.back.service.UserRoleServiceTest" />
-      <option name="METHOD_NAME" value="deleteAllByUserIdTest" />
+      <option name="MAIN_CLASS_NAME" value="com.chobutton.back.service.UsersServiceTest" />
+      <option name="METHOD_NAME" value="findByEmailTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserRoleServiceTest.deleteByIdTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UsersServiceTest.findByIdTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="back.test" />
       <extension name="coverage">
         <pattern>
@@ -153,14 +131,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.chobutton.back.service" />
-      <option name="MAIN_CLASS_NAME" value="com.chobutton.back.service.UserRoleServiceTest" />
-      <option name="METHOD_NAME" value="deleteByIdTest" />
+      <option name="MAIN_CLASS_NAME" value="com.chobutton.back.service.UsersServiceTest" />
+      <option name="METHOD_NAME" value="findByIdTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserRoleServiceTest.saveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UsersServiceTest.saveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="back.test" />
       <extension name="coverage">
         <pattern>
@@ -169,8 +147,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.chobutton.back.service" />
-      <option name="MAIN_CLASS_NAME" value="com.chobutton.back.service.UserRoleServiceTest" />
+      <option name="MAIN_CLASS_NAME" value="com.chobutton.back.service.UsersServiceTest" />
       <option name="METHOD_NAME" value="saveTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UsersServiceTest.updateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="back.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.chobutton.back.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.chobutton.back.service" />
+      <option name="MAIN_CLASS_NAME" value="com.chobutton.back.service.UsersServiceTest" />
+      <option name="METHOD_NAME" value="updateTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -185,11 +179,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserRoleRepositoryTest.deleteAllByUserIdTest" />
-        <item itemvalue="JUnit.UserRoleServiceTest.deleteAllByUserIdTest" />
-        <item itemvalue="JUnit.UserRoleServiceTest.deleteByIdTest" />
-        <item itemvalue="JUnit.UserRoleServiceTest" />
-        <item itemvalue="JUnit.UserRoleServiceTest.saveTest" />
+        <item itemvalue="JUnit.UsersServiceTest.updateTest" />
+        <item itemvalue="JUnit.UsersServiceTest.saveTest" />
+        <item itemvalue="JUnit.UsersServiceTest.deleteById" />
+        <item itemvalue="JUnit.UsersServiceTest.findByEmailTest" />
+        <item itemvalue="JUnit.UsersServiceTest.findByIdTest" />
       </list>
     </recent_temporary>
   </component>
@@ -211,7 +205,10 @@
       <workItem from="1694074922520" duration="2956000" />
       <workItem from="1694321974406" duration="731000" />
       <workItem from="1694407536586" duration="16502000" />
-      <workItem from="1694486010912" duration="1957000" />
+      <workItem from="1694486010912" duration="4504000" />
+      <workItem from="1694491667797" duration="9000" />
+      <workItem from="1694491730627" duration="16104000" />
+      <workItem from="1694582818783" duration="1539000" />
     </task>
     <servers />
   </component>

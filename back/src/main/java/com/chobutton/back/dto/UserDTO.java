@@ -1,6 +1,5 @@
 package com.chobutton.back.dto;
 
-import com.chobutton.back.enums.Role;
 import lombok.*;
 
 @Getter
@@ -9,12 +8,10 @@ import lombok.*;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserRoleDTO {
-
+public class UserDTO {
     private int id;
 
-    private int userId;
+    private String email;
 
-    private Role role;
-
+    private String password;
 }

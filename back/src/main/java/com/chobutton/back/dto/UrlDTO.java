@@ -1,5 +1,4 @@
 package com.chobutton.back.dto;
-import com.chobutton.back.entity.Url;
 import lombok.*;
 
 @Getter @Setter @Builder @ToString

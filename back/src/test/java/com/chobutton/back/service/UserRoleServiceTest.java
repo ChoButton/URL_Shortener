@@ -1,9 +1,7 @@
 package com.chobutton.back.service;
 
 import com.chobutton.back.dto.UserRoleDTO;
-import com.chobutton.back.entity.UserRole;
 import com.chobutton.back.enums.Role;
-import com.chobutton.back.repository.UserRoleRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

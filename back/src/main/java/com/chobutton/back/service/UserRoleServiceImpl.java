@@ -90,20 +90,20 @@ public class UserRoleServiceImpl implements UserRoleService{
 
 
     // Entity <-> DTO 변환 메서드
-    public static UserRoleDTO fromUserRoleEntityForFind(UserRole userRole){
+    private static UserRoleDTO fromUserRoleEntityForFind(UserRole userRole){
         return UserRoleDTO.builder()
                 .userId(userRole.getUserId())
                 .role(userRole.getRole())
                 .build();
     }
 
-    public static List<UserRoleDTO> fromUserRoleEntityForFindAll(List<UserRole> roleList){
+    private static List<UserRoleDTO> fromUserRoleEntityForFindAll(List<UserRole> roleList){
         return roleList.stream()
                 .map(UserRoleServiceImpl::fromUserRoleEntityForFind)
                 .collect(Collectors.toList());
     }
 
-    public static UserRole toEntityForSave(UserRoleDTO userRoleDTO){
+    private static UserRole toEntityForSave(UserRoleDTO userRoleDTO){
         return UserRole.builder()
                 .userId(userRoleDTO.getUserId())
                 .role(userRoleDTO.getRole())

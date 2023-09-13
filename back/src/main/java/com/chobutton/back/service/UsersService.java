@@ -1,23 +1,23 @@
 package com.chobutton.back.service;
 
-import com.chobutton.back.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import com.chobutton.back.dto.UserDTO;
+import com.chobutton.back.dto.UserUpdateDTO;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class UsersService {
+public interface UsersService {
 
-    private final UserRepository userRepository;
+    UserDTO findById(int id);
 
-    // BCryptPasswordEncoder의 순환참조 문제를 해결하기 위해 @Lazy 어노테이션 사용
-    @Autowired
-    public UsersService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    UserDTO findByEmail(String email);
 
+    List<UserDTO> findAll();
 
+    void deleteById(int id);
 
+    void save(UserDTO userDTO);
 
+    void update(UserUpdateDTO userUpdateDTO);
 }
