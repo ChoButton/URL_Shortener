@@ -47,6 +47,7 @@ public class UrlServiceImpl implements UrlService{
         UrlDTO urlDTO = fromUrlEntityForFind(url);
         int originUrlId = urlDTO.getId();
         String shortUrl = Base56Util.base56Encoding(originUrlId);
+        url.incrementRequestCount();
         return shortUrl;
     }
 
@@ -59,14 +60,16 @@ public class UrlServiceImpl implements UrlService{
         return originUrl;
     }
 
+    @Transactional
     @Override
     public void save(UrlDTO urlDTO) {
-
+         urlRepository.save(toEntityForSave(urlDTO));
     }
 
     @Override
     public void update(UrlDTO urlDTO) {
-
+        Url url = urlRepository.findById(urlDTO.getId()).get();
+        url.updateOriginUrl(urlDTO.getOriginUrl());
     }
 
     @Override
@@ -100,14 +103,13 @@ public class UrlServiceImpl implements UrlService{
                 .build();
     }
 
-    // UrlDTO 객체를 Entity로 변환해주는 메서드
-    // User의 FindById가 필요하기 때문에 추후 구현
-//    private static Url toEntityForSave(UrlDTO urlDTO){
-//        return Url.builder()
-//                .user(urlDTO.getUserId())
-//                .originUrl(urlDTO.getOriginUrl())
-//                .requestCount(0)
-//                .build();
-//    }
+     //UrlDTO 객체를 Entity로 변환해주는 메서드
+    private static Url toEntityForSave(UrlDTO urlDTO){
+        return Url.builder()
+                .userId(urlDTO.getUserId())
+                .originUrl(urlDTO.getOriginUrl())
+                .requestCount(0)
+                .build();
+    }
 
 }

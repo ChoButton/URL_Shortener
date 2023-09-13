@@ -33,4 +33,9 @@ public class Url {
     public void incrementRequestCount() {
         this.requestCount += 1;
     }
+
+    // Url 수정을 위한 메서드 추가
+    public void updateOriginUrl(String originUrl) {
+        this.originUrl = originUrl;
+    }
 }

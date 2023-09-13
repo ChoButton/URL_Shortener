@@ -96,4 +96,49 @@ public class UrlServiceTest {
         //then
         assertThat(urlList.size()).isEqualTo(4);
     }
+
+    @Test
+    @Transactional
+    @DisplayName("새로운 URL이 등록될경우 전체 데이터의 갯수는 6개일 것이고," +
+            "새로 입력한 데이터는 마지막 인덱스에 있을것이다.")
+    public void saveTest(){
+        //given
+        String originUrl = "http://originURL6.com";
+        int userId = 3;
+
+        //when
+        UrlDTO url = UrlDTO.builder()
+                .originUrl(originUrl)
+                .userId(userId)
+                .build();
+
+        urlService.save(url);
+
+        List<UrlDTO> urlList = urlService.findAll();
+
+        //then
+        assertThat(urlList.size()).isEqualTo(6);
+        assertThat(urlList.get(urlList.size()-1).getOriginUrl()).isEqualTo(originUrl);
+        assertThat(urlList.get(urlList.size()-1).getUserId()).isEqualTo(userId);
+    }
+
+    @Test
+    @Transactional
+    @DisplayName("UrlDTO 형태로 전달된 4번 Url의 originUrl을 변경할경우 변경된 사항이 반영되며," +
+            "Id는 변경전이랑 같을것이다.")
+    public void updateTest(){
+        //given
+        int id = urlService.findAll().get(3).getId();
+        String newUrl = "http://newUrl.com";
+        UrlDTO urlDTO = urlService.findAll().get(3);
+        urlDTO.setOriginUrl(newUrl);
+
+        //when
+        urlService.update(urlDTO);
+        UrlDTO updatedUrlDTO = urlService.findAll().get(3);
+
+        //then
+        assertThat(updatedUrlDTO.getOriginUrl()).isEqualTo(newUrl);
+        assertThat(updatedUrlDTO.getId()).isEqualTo(id);
+    }
 }
