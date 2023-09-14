@@ -26,4 +26,18 @@ public class GlobalExceptionHandler {
         exceptionLogger.error(e.getMessage(), e);
         return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
     }
+
+    // 400에러 익셉션 처리
+    @ExceptionHandler(BadRequestException.class)
+    public ResponseEntity<String> handleUserServiceException(BadRequestException e){
+        exceptionLogger.error(e.getMessage(), e);
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+
+    // 404에러 익셉션 처리
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<String> handleResourceNotFoundException(ResourceNotFoundException e){
+        exceptionLogger.error(e.getMessage(), e);
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+    }
 }

@@ -15,4 +15,5 @@ public interface UrlRepository extends JpaRepository<Url, Integer> {
     // originUrl로 접속시 DB에 해당하는 데이터의 PK를 불러와 인코딩을 하기 위한 기능
     Url findByOriginUrl(String originUrl);
 
+    void deleteAllByUserId(int userId);
 }

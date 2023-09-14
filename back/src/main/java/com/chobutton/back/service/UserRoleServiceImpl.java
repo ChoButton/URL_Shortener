@@ -5,6 +5,7 @@ import com.chobutton.back.dto.UserRoleDTO;
 import com.chobutton.back.entity.Url;
 import com.chobutton.back.entity.UserRole;
 import com.chobutton.back.enums.Role;
+import com.chobutton.back.exception.BadRequestException;
 import com.chobutton.back.repository.UserRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -65,8 +66,11 @@ public class UserRoleServiceImpl implements UserRoleService{
     public List<UserRoleDTO> findAllByUserId(int userId) {
 
         List<UserRole> userRoleList = userRoleRepository.findAllByUserId(userId);
-
-        return fromUserRoleEntityForFindAll(userRoleList);
+        if(userRoleList.isEmpty()){
+            throw new BadRequestException("찾으시는 유저의 권한은 없습니다.");
+        }else {
+            return fromUserRoleEntityForFindAll(userRoleList);
+        }
     }
 
     @Transactional
@@ -87,6 +91,8 @@ public class UserRoleServiceImpl implements UserRoleService{
     public void deleteAllByUserId(int userId) {
         userRoleRepository.deleteAllByUserId(userId);
     }
+
+
 
 
     // Entity <-> DTO 변환 메서드
