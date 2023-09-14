@@ -2,11 +2,15 @@ package com.chobutton.back.service;
 
 import com.chobutton.back.dto.UrlDTO;
 import com.chobutton.back.entity.Url;
+import com.chobutton.back.entity.User;
 import com.chobutton.back.repository.UrlRepository;
+import com.chobutton.back.repository.UserRepository;
 import com.chobutton.back.util.Base56Util;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,13 +19,15 @@ import java.util.stream.Collectors;
 public class UrlServiceImpl implements UrlService{
 
     UrlRepository urlRepository;
+    UserRepository userRepository;
 
     @Autowired
-    public UrlServiceImpl(UrlRepository urlRepository){
+    public UrlServiceImpl(UrlRepository urlRepository,
+                          UserRepository userRepository){
         this.urlRepository = urlRepository;
+        this.userRepository = userRepository;
     }
 
-    // UrlEntity를 불러와 UrlDTO형대로 변환하는 로직 추가
     @Transactional
     @Override
     public List<UrlDTO> findAll() {
@@ -30,7 +36,7 @@ public class UrlServiceImpl implements UrlService{
         return urlDTOList;
     }
 
-    // user별 등록한 URL을 조회하기 위한 기능
+    // user의 id를 이용하여 등록한 URL을 조회하기 위한 기능
     @Transactional
     @Override
     public List<UrlDTO> findAllByUserId(int userId) {
@@ -39,7 +45,19 @@ public class UrlServiceImpl implements UrlService{
         return urlDTOList;
     }
 
-    // originUrl로 접속시 DB에 해당하는 데이터의 PK를 불러와 인코딩을 하기 위한 기능
+    // 관리자의 유저별 등록 URL검색 기능을 위해 유저의 email을 통해 조회하는 기능
+    @Transactional
+    @Override
+    public List<UrlDTO> findAllByUserEmail(String email){
+        User user = userRepository.findByEmail(email);
+        int userId = user.getId();
+        List<Url> urlList = urlRepository.findAllByUserId(userId);
+        List<UrlDTO> urlDTOList = fromUrlEntityForFindAll(urlList);
+        return urlDTOList;
+    }
+
+
+    // originUrl입력시 DB에 해당하는 데이터의 PK를 불러와 인코딩을 하기 위한 기능
     @Transactional
     @Override
     public String urlEncoding(String originUrl) {
@@ -47,23 +65,33 @@ public class UrlServiceImpl implements UrlService{
         UrlDTO urlDTO = fromUrlEntityForFind(url);
         int originUrlId = urlDTO.getId();
         String shortUrl = Base56Util.base56Encoding(originUrlId);
-        url.incrementRequestCount();
         return shortUrl;
     }
 
-    // shortenUrl이 전달될때 디코딩하여 Id값을 리턴해주는 메서드
+    // shortenUrl이 전달될때 디코딩하여 Id값을 리턴후 해당 Id값으로 originUrl을 리턴해주는 기능
     @Transactional
     @Override
     public String urlDecoding(String shortenUrl) {
         int originUrlId = Base56Util.base56Decoding(shortenUrl);
-        String originUrl = urlRepository.findById(originUrlId).get().getOriginUrl();
-        return originUrl;
+        Url url = urlRepository.findById(originUrlId).orElse(null);
+        if (url == null){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "없는 URL로 접속하셨습니다.");
+        }else{
+            String originUrl = url.getOriginUrl();
+            // originUrl로 접속시 접속수 +1
+            urlRepository.findById(originUrlId).get().incrementRequestCount();
+            return originUrl;
+        }
     }
 
+    //URL 등록후 바로 단축된URL을 확인할수 있도록 단축된 URL리턴
     @Transactional
     @Override
-    public void save(UrlDTO urlDTO) {
-         urlRepository.save(toEntityForSave(urlDTO));
+    public String save(UrlDTO urlDTO) {
+        urlRepository.save(toEntityForSave(urlDTO));
+        List<Url> urlList = urlRepository.findAllByUserId(urlDTO.getUserId());
+        int urlId = urlList.get(urlList.size()-1).getId();
+        return Base56Util.base56Encoding(urlId);
     }
 
     @Override
@@ -88,6 +116,7 @@ public class UrlServiceImpl implements UrlService{
                 .userId(url.getUserId())
                 .originUrl(url.getOriginUrl())
                 .requestCount(url.getRequestCount())
+                .shortenUrl("localhost:8080/shortnee/" + Base56Util.base56Encoding(url.getId()))
                 .build();
     }
     // Entity List를 DTO로 변환하여 불러오는 메서드 정의
@@ -111,5 +140,6 @@ public class UrlServiceImpl implements UrlService{
                 .requestCount(0)
                 .build();
     }
+
 
 }

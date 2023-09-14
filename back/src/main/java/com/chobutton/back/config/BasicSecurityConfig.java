@@ -26,8 +26,7 @@ public class BasicSecurityConfig {
         return http
                 .authorizeHttpRequests(authorizationConfig -> {
                     authorizationConfig
-                            .requestMatchers("/login", "/signup")
-                            .permitAll()
+                            .requestMatchers("/login", "/signup").permitAll()
                             .anyRequest()
                             .authenticated();
                 })
