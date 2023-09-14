@@ -2,6 +2,7 @@ package com.chobutton.back.service;
 
 import com.chobutton.back.dto.UserRoleDTO;
 import com.chobutton.back.enums.Role;
+import com.chobutton.back.exception.BadRequestException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import java.util.List;
 import static com.chobutton.back.enums.Role.ADMIN;
 import static com.chobutton.back.enums.Role.USER;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
 public class UserRoleServiceTest {
@@ -136,10 +138,10 @@ public class UserRoleServiceTest {
         //when
         userRoleService.deleteAllByUserId(userId);
         List<UserRoleDTO> userRoleDTOS = userRoleService.findAll();
-        List<UserRoleDTO> user1Roles = userRoleService.findAllByUserId(userId);
+        ;
 
         //then
         assertThat(userRoleDTOS.size()).isEqualTo(6);
-        assertThat(user1Roles).isEmpty();
+        assertThrows(BadRequestException.class, () -> userRoleService.findAllByUserId(userId));
     }
 }

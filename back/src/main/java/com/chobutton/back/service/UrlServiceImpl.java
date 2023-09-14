@@ -3,6 +3,8 @@ package com.chobutton.back.service;
 import com.chobutton.back.dto.UrlDTO;
 import com.chobutton.back.entity.Url;
 import com.chobutton.back.entity.User;
+import com.chobutton.back.exception.BadRequestException;
+import com.chobutton.back.exception.ResourceNotFoundException;
 import com.chobutton.back.repository.UrlRepository;
 import com.chobutton.back.repository.UserRepository;
 import com.chobutton.back.util.Base56Util;
@@ -41,8 +43,12 @@ public class UrlServiceImpl implements UrlService{
     @Override
     public List<UrlDTO> findAllByUserId(int userId) {
         List<Url> urlList = urlRepository.findAllByUserId(userId);
-        List<UrlDTO> urlDTOList = fromUrlEntityForFindAll(urlList);
-        return urlDTOList;
+        if(urlList.isEmpty()){
+            throw new BadRequestException("등록된 URL이 없습니다.");
+        }else {
+            List<UrlDTO> urlDTOList = fromUrlEntityForFindAll(urlList);
+            return urlDTOList;
+        }
     }
 
     // 관리자의 유저별 등록 URL검색 기능을 위해 유저의 email을 통해 조회하는 기능
@@ -75,7 +81,7 @@ public class UrlServiceImpl implements UrlService{
         int originUrlId = Base56Util.base56Decoding(shortenUrl);
         Url url = urlRepository.findById(originUrlId).orElse(null);
         if (url == null){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "없는 URL로 접속하셨습니다.");
+            throw new ResourceNotFoundException("없는 URL로 접속하셨습니다.");
         }else{
             String originUrl = url.getOriginUrl();
             // originUrl로 접속시 접속수 +1

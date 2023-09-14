@@ -51,4 +51,19 @@ public class UrlRepositoryTest {
         assertThat(url.getId()).isEqualTo(2);
     }
 
+    @Test
+    @Transactional
+    @DisplayName("유저 1의 등록된 URL을 전부 삭제할경우 전체 등록 URL갯수는 2개일것이다.")
+    public void deleteAllByUserIdTest(){
+        //given
+        int userId = 1;
+
+        //when
+        urlRepository.deleteAllByUserId(userId);
+        List<Url> urlList = urlRepository.findAll();
+
+        //then
+        assertThat(urlList.size()).isEqualTo(2);
+    }
+
 }
