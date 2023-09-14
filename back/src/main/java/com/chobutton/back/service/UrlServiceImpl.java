@@ -7,8 +7,10 @@ import com.chobutton.back.repository.UrlRepository;
 import com.chobutton.back.repository.UserRepository;
 import com.chobutton.back.util.Base56Util;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -71,10 +73,15 @@ public class UrlServiceImpl implements UrlService{
     @Override
     public String urlDecoding(String shortenUrl) {
         int originUrlId = Base56Util.base56Decoding(shortenUrl);
-        String originUrl = urlRepository.findById(originUrlId).get().getOriginUrl();
-        // originUrl로 접속시 접속수 +1
-        urlRepository.findById(originUrlId).get().incrementRequestCount();
-        return originUrl;
+        Url url = urlRepository.findById(originUrlId).orElse(null);
+        if (url == null){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "없는 URL로 접속하셨습니다.");
+        }else{
+            String originUrl = url.getOriginUrl();
+            // originUrl로 접속시 접속수 +1
+            urlRepository.findById(originUrlId).get().incrementRequestCount();
+            return originUrl;
+        }
     }
 
     //URL 등록후 바로 단축된URL을 확인할수 있도록 단축된 URL리턴
@@ -133,4 +140,6 @@ public class UrlServiceImpl implements UrlService{
                 .requestCount(0)
                 .build();
     }
+
+
 }

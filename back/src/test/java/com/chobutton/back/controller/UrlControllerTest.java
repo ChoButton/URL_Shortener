@@ -187,6 +187,6 @@ public class UrlControllerTest {
 
         //then
         mockMvc.perform(get(shortenUrl))
-                .andExpect(status().is4xxClientError());
+                .andExpect(status().isNotFound());
     }
 }

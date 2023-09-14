@@ -19,11 +19,7 @@ public class UrlRedirectController {
     @RequestMapping(value = "/shortnee/{shortenUrl}", method = RequestMethod.GET)
     public String redirectToOriginUrl(@PathVariable String shortenUrl){
         String originUrl = urlService.urlDecoding(shortenUrl);
-        if(shortenUrl == null){
-            return new ResponseStatusException(HttpStatus.NOT_FOUND, "URL not found");
-        }else {
             return "redirect:" + originUrl;
-        }
     }
 
 }

@@ -4,8 +4,6 @@ import com.chobutton.back.dto.UserDTO;
 import com.chobutton.back.dto.UserUpdateDTO;
 import com.chobutton.back.entity.User;
 import com.chobutton.back.repository.UserRepository;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.cfg.MapperBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
