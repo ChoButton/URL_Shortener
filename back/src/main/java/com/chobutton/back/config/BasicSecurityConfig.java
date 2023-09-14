@@ -5,6 +5,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -15,6 +16,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration // 설정 클래스 상위에 붙이는 어노테이션
 @RequiredArgsConstructor
+@EnableMethodSecurity(prePostEnabled = true)
 // 베이직 방식 인증을 사용하도록 설정하는 파일
 public class BasicSecurityConfig {
     private final UserDetailsService userDetailsService;
@@ -26,7 +28,7 @@ public class BasicSecurityConfig {
         return http
                 .authorizeHttpRequests(authorizationConfig -> {
                     authorizationConfig
-                            .requestMatchers("/login", "/signup").permitAll()
+                            .requestMatchers("/login", "/signup", "/shortnee").permitAll()
                             .anyRequest()
                             .authenticated();
                 })

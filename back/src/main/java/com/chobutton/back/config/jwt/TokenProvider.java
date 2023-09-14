@@ -30,7 +30,7 @@ public class TokenProvider {
         // 현재시간 기준으로 토큰 발급 날짜 저장
         Date now = new Date();
 
-        // 사용자 권한을 가져오는 메서드 추가예정
+        // 사용자 권한을 가져와서 ROLE_ 접두사가 붙은 권한으로 변경해주는 코드
         List<String> roles = userRoleService.getRolesName(user.getId());
 
         // 빌더패턴 으로 토큰 생성
