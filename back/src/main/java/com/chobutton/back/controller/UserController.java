@@ -1,12 +1,11 @@
 package com.chobutton.back.controller;
 
-import com.chobutton.back.config.jwt.TokenProvider;
 import com.chobutton.back.dto.UserDTO;
 import com.chobutton.back.dto.UserUpdateDTO;
 import com.chobutton.back.service.UsersService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -14,11 +13,6 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     private final UsersService usersService;
-
-    private final BCryptPasswordEncoder bCryptPasswordEncoder;
-
-    private final TokenProvider tokenProvider;
-
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ResponseEntity<String> loginAuthentication(@RequestBody UserDTO loginUser){
@@ -30,14 +24,16 @@ public class UserController {
         return usersService.save(signupUser);
     }
 
+    @PreAuthorize("hasRole('ROLE_USER')")
     @RequestMapping(value = "/update/password", method = RequestMethod.PATCH)
     public ResponseEntity<String> updatePassword (@RequestBody UserUpdateDTO updateUser){
         return usersService.update(updateUser);
     }
 
+    @PreAuthorize("hasRole('ROLE_USER')")
     @RequestMapping(value = "/delete/{userId}", method = RequestMethod.DELETE)
     public ResponseEntity<String> deleteUser (@PathVariable int userId){
         usersService.deleteById(userId);
-        return ResponseEntity.ok().body("정상적으로 유저가 삭제되었습니다.");
+        return ResponseEntity.ok().body("탈퇴가 정상적으로 처리되었습니다.");
     }
 }
