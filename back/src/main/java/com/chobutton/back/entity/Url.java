@@ -19,7 +19,7 @@ public class Url {
     @Column(nullable = false)
     private int id;
 
-    @Column(nullable = false)
+    @Column
     private int userId;
 
     @Column(nullable = false, length = 2000)
@@ -37,5 +37,9 @@ public class Url {
     // Url 수정을 위한 메서드 추가
     public void updateOriginUrl(String originUrl) {
         this.originUrl = originUrl;
+    }
+
+    public void updateUserId(int userId){
+        this.userId = userId;
     }
 }

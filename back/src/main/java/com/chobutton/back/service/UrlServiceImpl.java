@@ -95,15 +95,21 @@ public class UrlServiceImpl implements UrlService{
     @Override
     public String save(UrlDTO urlDTO) {
         urlRepository.save(toEntityForSave(urlDTO));
-        List<Url> urlList = urlRepository.findAllByUserId(urlDTO.getUserId());
-        int urlId = urlList.get(urlList.size()-1).getId();
+        Url url = urlRepository.findByOriginUrl(urlDTO.getOriginUrl());
+        int urlId = url.getId();
         return Base56Util.base56Encoding(urlId);
     }
 
     @Override
     public void update(UrlDTO urlDTO) {
-        Url url = urlRepository.findById(urlDTO.getId()).get();
-        url.updateOriginUrl(urlDTO.getOriginUrl());
+        Url url = urlRepository.findById(urlDTO.getId()).orElse(null);
+        if(url == null){
+            throw new BadRequestException("등록된 URL이 없습니다.");
+        }else if(!url.getOriginUrl().equals(urlDTO.getOriginUrl())){
+            url.updateOriginUrl(urlDTO.getOriginUrl());
+        }else if(url.getUserId() != urlDTO.getUserId()){
+            url.updateUserId(urlDTO.getUserId());
+        }
     }
 
     @Override

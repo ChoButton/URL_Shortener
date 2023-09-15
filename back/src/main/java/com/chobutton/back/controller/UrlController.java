@@ -41,7 +41,7 @@ public class UrlController {
     // 사용자용 기능 -----------------------------------------------------------------------------------
 
     // URL등록후 바로 단축된 URL을 확인할수 있도록 body에 단축된 URL을 같이 리턴함
-    @PreAuthorize("hasRole('ROLE_USER')")
+    // 비회원도 사용 가능
     @RequestMapping(value = "/user/create", method = RequestMethod.POST)
     public ResponseEntity<String> createShortenUrl(@RequestBody UrlDTO urlDTO){
         String shortenUrl = urlService.save(urlDTO);
