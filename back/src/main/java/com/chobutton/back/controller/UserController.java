@@ -21,7 +21,7 @@ public class UserController {
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public ResponseEntity<String> signup (@RequestBody UserDTO signupUser){
-        return usersService.save(signupUser);
+            return usersService.save(signupUser);
     }
 
     @PreAuthorize("hasRole('ROLE_USER')")

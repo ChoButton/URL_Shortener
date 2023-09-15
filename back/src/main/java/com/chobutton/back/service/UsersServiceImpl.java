@@ -3,6 +3,7 @@ package com.chobutton.back.service;
 import com.chobutton.back.config.jwt.TokenProvider;
 import com.chobutton.back.dto.UserDTO;
 import com.chobutton.back.dto.UserUpdateDTO;
+import com.chobutton.back.entity.Url;
 import com.chobutton.back.entity.User;
 import com.chobutton.back.entity.UserRole;
 import com.chobutton.back.enums.Role;
@@ -104,13 +105,22 @@ public class UsersServiceImpl implements UsersService{
                     .password(bCryptPasswordEncoder.encode(signupUser.getPassword()))
                     .build();
             userRepository.save(user);
+
             int userId = userRepository.findByEmail(user.getEmail()).getId();
+
             // 유저가 최초 회원가입시 기본적으로 USER권한 부여
             UserRole userRole = UserRole.builder()
                     .userId(userId)
                     .role(Role.USER)
                     .build();
             userRoleRepository.save(userRole);
+
+            // url등록후 회원가입 진행시 등록된 url에 userId 업데이트
+            if(signupUser.getOriginUrl() != null){
+                Url url = urlRepository.findByOriginUrl(signupUser.getOriginUrl());
+                url.updateUserId(userId);
+            }
+
             return ResponseEntity.ok().body("회원가입이 정상적으로 완료되었습니다.");
         }else {
             throw new BadRequestException("이미 가입된 사용자 입니다.");
