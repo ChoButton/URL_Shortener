@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d4715fbe-03ef-458e-88a1-f84853288d54" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/config/BasicSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/config/BasicSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/config/jwt/TokenProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/config/jwt/TokenProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/controller/UrlController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/controller/UrlController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/chobutton/back/controller/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +189,7 @@
       <workItem from="1694610197927" duration="3224000" />
       <workItem from="1694613435141" duration="4394000" />
       <workItem from="1694662372477" duration="27430000" />
-      <workItem from="1694694336447" duration="809000" />
+      <workItem from="1694694336447" duration="2110000" />
     </task>
     <servers />
   </component>
