@@ -94,10 +94,16 @@ public class UrlServiceImpl implements UrlService{
     @Transactional
     @Override
     public String save(UrlDTO urlDTO) {
+
+        // "http://" 또는 "https://"로 시작하지 않는 경우 "http://"를 추가
+        if (!urlDTO.getOriginUrl().startsWith("http://") && !urlDTO.getOriginUrl().startsWith("https://")) {
+            urlDTO.setOriginUrl("http://" + urlDTO.getOriginUrl());
+        }
+
         urlRepository.save(toEntityForSave(urlDTO));
         Url url = urlRepository.findByOriginUrl(urlDTO.getOriginUrl());
         int urlId = url.getId();
-        return Base56Util.base56Encoding(urlId);
+        return "localhost:8080/shortnee/" + Base56Util.base56Encoding(urlId);
     }
 
     @Override
