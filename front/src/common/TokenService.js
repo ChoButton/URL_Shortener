@@ -19,5 +19,15 @@ export const getUserIdFromToken = () => {
 
 // 백서버에서 리턴된 token을 클라이언트의 로컬스토리지에 저장하는 기능
 export const setToken = (token) => {
-    localStorage.setItem("authToken", token);
+    localStorage.setItem("token", token);
+}
+
+// 로컬스토리지에서 토큰을 얻어오는 기능
+export const getToken = () => {
+    return localStorage.getItem('token');
+}
+
+// 필요시 로컬스토리지에서 토큰을 삭제하는 기능
+export const deleteToken = () => {
+    localStorage.removeItem('token');
 }

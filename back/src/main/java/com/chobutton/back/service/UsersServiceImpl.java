@@ -130,7 +130,10 @@ public class UsersServiceImpl implements UsersService{
     @Transactional
     @Override
     public ResponseEntity<String> update(UserUpdateDTO userUpdate){
-        User user = userRepository.findById(userUpdate.getId()).get();
+        User user = userRepository.findById(userUpdate.getId()).orElse(null);
+        if(user == null){
+            throw new BadRequestException("입력된 정보가 없습니다.");
+        }
         // user가 입력한 원password와 DB에 적재된 password를 비교후 true면 수정로직 수행
         if(bCryptPasswordEncoder.matches(userUpdate.getOriginPassword(), user.getPassword())){
             user.updatePassword(bCryptPasswordEncoder.encode(userUpdate.getNewPassword()));

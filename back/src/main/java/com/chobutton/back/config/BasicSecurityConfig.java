@@ -13,6 +13,11 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import java.util.Arrays;
 
 @Configuration // 설정 클래스 상위에 붙이는 어노테이션
 @RequiredArgsConstructor
@@ -48,6 +53,8 @@ public class BasicSecurityConfig {
                 })
                 .csrf(AbstractHttpConfigurer::disable)
                 .addFilterBefore(tokenAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
+                .cors(cors ->
+                        cors.configurationSource(corsConfigurationSource()))
                 .build();
     }
 
@@ -61,6 +68,18 @@ public class BasicSecurityConfig {
     @Bean
     public TokenAuthenticationFilter tokenAuthenticationFilter(){
         return new TokenAuthenticationFilter(tokenProvider);
+    }
+
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000"));
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
+        configuration.setAllowedHeaders(Arrays.asList("Authorization", "content-type"));
+        configuration.setExposedHeaders(Arrays.asList("Authorization"));
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
     }
 
 }

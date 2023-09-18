@@ -12,7 +12,6 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/url")
-@CrossOrigin(origins = "http://localhost:3000")
 public class UrlController {
 
     private UrlService urlService;
