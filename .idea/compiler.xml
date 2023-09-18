@@ -19,8 +19,5 @@
         <module name="back.test" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="back.querydsl" target="17" />
-    </bytecodeTargetLevel>
   </component>
 </project>

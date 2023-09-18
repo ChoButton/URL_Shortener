@@ -22,6 +22,7 @@ public class UserController {
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public ResponseEntity<String> signup (@RequestBody UserDTO signupUser){
+        System.out.println("DTO 확인 : " + signupUser.toString());
             return usersService.save(signupUser);
     }
 
