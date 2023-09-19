@@ -1,0 +1,26 @@
+.header {
+    width: auto;
+    height: 100px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f7f7f7;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header a {
+    margin: 0 10px; /* 각 링크의 양옆 마진 */
+    text-decoration: none; /* 밑줄 제거 */
+    color: inherit; /* 부모 요소의 텍스트 색상을 상속 */
+}
+
+.shortnee {
+    color: #00C4C4;
+    font-family: Inter;
+    font-size: 96px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
