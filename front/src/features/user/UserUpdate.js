@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import {ENDPOINTS} from "../../common/ApiEndpoints";
 import {getToken, getUserIdFromToken} from "../../common/TokenService";
 import jwt from "jsonwebtoken";
+import TokenValidator from "../../common/TokenValidator";
 
 const UserUpdate = () => {
     const [originPassword, setOriginPassword] = useState("");
@@ -46,6 +47,7 @@ const UserUpdate = () => {
 
     return (
         <div>
+            <TokenValidator />
             <h2>비밀번호 변경</h2>
             <Form onSubmit={updatePasswordSubmit}>
                 <Form.Group className="mb-3" controlId="currentPassword">

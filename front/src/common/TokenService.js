@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useEffect} from "react";
 import jwt from 'jsonwebtoken';
+import {useNavigate} from "react-router-dom";
 
 // token에서 userId를 얻어내기 위한 기능
 export const getUserIdFromToken = () => {
@@ -30,4 +31,36 @@ export const getToken = () => {
 // 필요시 로컬스토리지에서 토큰을 삭제하는 기능
 export const deleteToken = () => {
     localStorage.removeItem('token');
+}
+
+// 토큰에서 권한정보를 얻어오는 기능
+export const getRolesFromToken = () => {
+    const token = localStorage.getItem("token");
+
+    if(!token) return null;
+
+    try {
+        const decodedToken = jwt.decode(token);
+        return decodedToken.roles;
+    }catch (error){
+        console.error("토큰 디코딩에 실패했습니다 : ", error);
+        return null;
+    }
+}
+
+// 토큰 유효시간 만료 확인 기능
+export const isTokenValid = () => {
+    const token = localStorage.getItem("token");
+
+    if (!token) return false;
+
+    try {
+        const decoded = jwt.decode(token);
+        // 현재시간을 초 단위로 변환
+        const currentTime = Date.now() / 1000;
+
+        return decoded.exp > currentTime;
+    } catch (e) {
+        return false;
+    }
 }

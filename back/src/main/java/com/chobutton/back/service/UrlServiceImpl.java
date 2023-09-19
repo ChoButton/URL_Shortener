@@ -94,18 +94,21 @@ public class UrlServiceImpl implements UrlService{
     @Transactional
     @Override
     public String save(UrlDTO urlDTO) {
-
         // "http://" 또는 "https://"로 시작하지 않는 경우 "http://"를 추가
         if (!urlDTO.getOriginUrl().startsWith("http://") && !urlDTO.getOriginUrl().startsWith("https://")) {
             urlDTO.setOriginUrl("http://" + urlDTO.getOriginUrl());
         }
-
-        urlRepository.save(toEntityForSave(urlDTO));
-        Url url = urlRepository.findByOriginUrl(urlDTO.getOriginUrl());
-        int urlId = url.getId();
-        return "localhost:8080/shortnee/" + Base56Util.base56Encoding(urlId);
+        if(urlRepository.findByOriginUrl(urlDTO.getOriginUrl()) == null){
+            urlRepository.save(toEntityForSave(urlDTO));
+            Url url = urlRepository.findByOriginUrl(urlDTO.getOriginUrl());
+            int urlId = url.getId();
+            return "localhost:8080/shortnee/" + Base56Util.base56Encoding(urlId);
+        }else {
+            throw new BadRequestException("이미 등록된 URL입니다.");
+        }
     }
 
+    @Transactional
     @Override
     public void update(UrlDTO urlDTO) {
         Url url = urlRepository.findById(urlDTO.getId()).orElse(null);
@@ -113,7 +116,7 @@ public class UrlServiceImpl implements UrlService{
             throw new BadRequestException("등록된 URL이 없습니다.");
         }else if(!url.getOriginUrl().equals(urlDTO.getOriginUrl())){
             url.updateOriginUrl(urlDTO.getOriginUrl());
-        }else if(url.getUserId() != urlDTO.getUserId()){
+        }else if(url.getUserId() == 0){
             url.updateUserId(urlDTO.getUserId());
         }
     }
