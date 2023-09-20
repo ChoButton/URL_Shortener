@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import {ENDPOINTS} from "../../common/ApiEndpoints";
 import { useLocation } from "react-router-dom";
 import "./Signup.css"
+import {MessageModal} from "../../common/ModalSrvice";
 
 const Signup = () => {
     const location = useLocation();
@@ -16,6 +17,10 @@ const Signup = () => {
     const [password, setPassword] = useState("");
     const [checkPassword, setCheckPassword] = useState("");
     const [originUrl, setOriginUrl] = useState(userOriginUrl);
+
+    // 모달을 사용하기 위한 상태값
+    const [showModal, setShowModal] = useState(false);
+    const [message, setMessage] = useState("");
 
     const navigate = useNavigate();
 
@@ -41,11 +46,14 @@ const Signup = () => {
             // 백서버로 회원가입 정보 전송
             const response = await axios.post(ENDPOINTS.SIGNUP, userDTO);
 
-            alert("회원가입이 완료되었습니다.")
+            setMessage("회원가입이 완료되었습니다.");
+            setShowModal(true);
             // 회원가입 완료후 메인페이지로 이동
             navigate("/");
         }catch (error){
             console.error("회원가입에 실패했습니다.");
+            setMessage("회원가입에 실패했습니다.");
+            setShowModal(true);
         }
     }
 
@@ -96,6 +104,11 @@ const Signup = () => {
                     </Button>
                 </div>
             </Form>
+            <MessageModal
+                show={showModal}
+                onHide={() => setShowModal(false)}
+                message={message}
+            />
         </div>
     );
 }

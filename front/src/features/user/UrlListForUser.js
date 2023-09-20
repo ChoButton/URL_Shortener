@@ -7,11 +7,16 @@ import TokenValidator from "../../common/TokenValidator";
 import {Button} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 import "./UrlListForUser.css";
+import {MessageModal} from "../../common/ModalSrvice";
 
 const UrlListForUser = () => {
     const [urlList, setUrlList] = useState([]);
     const [userId, setUserId] = useState(getUserIdFromToken());
     const [email, setEmail] = useState(getUserEmailFromToken());
+
+    // 모달을 사용하기 위한 상태값
+    const [showModal, setShowModal] = useState(false);
+    const [message, setMessage] = useState("");
 
     const navigate = useNavigate();
 
@@ -31,6 +36,8 @@ const UrlListForUser = () => {
             })
             .catch(error => {
                 console.error("URL 리스트를 가져오는데 실패했습니다.", error);
+                setMessage("URL 리스트를 가져오는데 실패했습니다.");
+                setShowModal(true);
             });
     };
 
@@ -79,6 +86,11 @@ const UrlListForUser = () => {
                     </tbody>
                 </table>
             </div>
+            <MessageModal
+                show={showModal}
+                onHide={() => setShowModal(false)}
+                message={message}
+            />
         </div>
     );
 };

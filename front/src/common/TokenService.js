@@ -1,6 +1,5 @@
-import React, {useEffect} from "react";
+import React from "react";
 import jwt from 'jsonwebtoken';
-import {useNavigate} from "react-router-dom";
 
 // token에서 userId를 얻어내기 위한 기능
 export const getUserIdFromToken = () => {

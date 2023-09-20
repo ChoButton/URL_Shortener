@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {getToken, getUserIdFromToken} from "../../common/TokenService";
+import {getToken} from "../../common/TokenService";
 import {ENDPOINTS} from "../../common/ApiEndpoints";
 import DeleteUrl from "../../common/DeleteUrl";
 import TokenValidator from "../../common/TokenValidator";
 import "./UrlListForAdmin.css"
+import {MessageModal} from "../../common/ModalSrvice";
 
 const UrlListForUser = () => {
     const [urlList, setUrlList] = useState([]);
     const [editingId, setEditingId] = useState(null);
     const [editedOriginUrl, setEditedOriginUrl] = useState("");
     const [searchEmail, setSearchEmail] = useState("");
+
+    // 모달을 사용하기 위한 상태값
+    const [showModal, setShowModal] = useState(false);
+    const [message, setMessage] = useState("");
 
     useEffect(() => {
         loadUrls();
@@ -28,6 +33,8 @@ const UrlListForUser = () => {
             })
             .catch(error => {
                 console.error("URL 리스트를 가져오는데 실패했습니다.", error);
+                setMessage("URL 리스트를 가져오는데 실패했습니다.");
+                setShowModal(true);
             });
     };
 
@@ -50,11 +57,15 @@ const UrlListForUser = () => {
             }
         })
             .then(response => {
+                setMessage("URL이 수정되었습니다.");
+                setShowModal(true);
                 loadUrls();
                 setEditingId(null);
             })
             .catch(error => {
                 console.error("URL 업데이트 실패", error);
+                setMessage("URL을 업데이트 하는데 실패했습니다.");
+                setShowModal(true);
             });
     }
 
@@ -70,6 +81,8 @@ const UrlListForUser = () => {
             })
             .catch(error => {
                 console.error("이메일로 URL 리스트를 가져오는데 실패했습니다.", error);
+                setMessage("이메일로 URL 리스트를 가져오는데 실패했습니다.");
+                setShowModal(true);
             });
     };
 
@@ -133,6 +146,11 @@ const UrlListForUser = () => {
                 ))}
                 </tbody>
             </table>
+            <MessageModal
+                show={showModal}
+                onHide={() => setShowModal(false)}
+                message={message}
+            />
         </div>
     );
 };

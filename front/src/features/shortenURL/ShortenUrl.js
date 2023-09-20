@@ -4,10 +4,15 @@ import { getUserIdFromToken } from "../../common/TokenService";
 import { ENDPOINTS } from "../../common/ApiEndpoints";
 import "./ShortenUrl.css";
 import {useNavigate} from "react-router-dom";
+import {MessageModal} from "../../common/ModalSrvice";
 
 const ShortenUrl = () => {
     const [originUrl, setOriginUrl] = useState("");
     const [shortenedUrl, setShortenedUrl] = useState("");
+
+    // 모달을 사용하기 위한 상태값
+    const [showModal, setShowModal] = useState(false);
+    const [message, setMessage] = useState("");
 
     const navigate = useNavigate();
 
@@ -22,9 +27,13 @@ const ShortenUrl = () => {
             };
 
             const response = await axios.post(ENDPOINTS.CREATE_SHORTEN_URL, urlDTO);
+            setMessage("URL이 성공적으로 단축되었습니다.");
+            setShowModal(true);
             setShortenedUrl(response.data);
         } catch (error) {
             console.error("단축URL등록에 실패했습니다.", error);
+            setMessage("단축URL 등록에 실패했습니다.");
+            setShowModal(true);
         }
     }
 
@@ -59,26 +68,35 @@ const ShortenUrl = () => {
                            className="shotrenUrlInputBox"
                     />
                     <button onClick={shortenUrlSubmit} className="shotrenUrlInputButton">링크단축</button>
-                    <h2 className="shotrenUrlBottomText">
-                        <br />
-                        회원가입후 서비스를 이용하실 경우 단축한 URL목록 및 접속 횟수를 볼수 있습니다.
-                    </h2>
+                    {isNonMember() && (
+                        <h2 className="shotrenUrlBottomText">
+                            <br />
+                            회원가입후 서비스를 이용하실 경우 단축한 URL목록 및 접속 횟수를 볼수 있습니다.
+                        </h2>
+                    )}
                 </>
             )}
-            <div className="addUrlAftersignupButton">
-                <br/>
-                <p className="urlWarning">비회원으로 등록하신 URL은 다시 조회가 불가능하니 꼭 단축된URL을 복사하셔야 합니다.</p>
-                <h3>아래 버튼을 통해서 회원가입 하실경우 지금 등록하신 URL이 등록됩니다.</h3>
-                {isNonMember() && shortenedUrl && (
-                    <button onClick={handleSignUp} className="btn btn-success" id="addUrlAfterSignupButton">회원가입</button>
-                )}
-            </div>
+            {isNonMember() && shortenedUrl && (
+                <div className="addUrlAftersignupButton">
+                    <br/>
+                    <p className="urlWarning">비회원으로 등록하신 URL은 다시 조회가 불가능하니 꼭 단축된URL을 복사하셔야 합니다.</p>
+                    <h3>아래 버튼을 통해서 회원가입 하실경우 지금 등록하신 URL이 등록됩니다.</h3>
+
+                        <button onClick={handleSignUp} className="btn btn-success" id="addUrlAfterSignupButton">회원가입</button>
+
+                </div>
+            )}
             <div className="addUrlButton">
                 <br/>
                 {shortenedUrl && (
                     <button onClick={resetComponent} className="btn btn-warning" id="addUrlButton">URL추가 등록</button>
                 )}
             </div>
+            <MessageModal
+                show={showModal}
+                onHide={() => setShowModal(false)}
+                message={message}
+            />
         </div>
     );
 }
