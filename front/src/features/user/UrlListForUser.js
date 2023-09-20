@@ -43,6 +43,7 @@ const UrlListForUser = () => {
                 <h2>
                     {email}님이 등록하신 URL목록입니다.
                     <div className="userUpdateButtonContainer">
+                        <br/>
                         <Button onClick={() => {navigate("/userUpdate")}}
                                 className="userUpdateButton">
                             회원정보수정
@@ -51,30 +52,32 @@ const UrlListForUser = () => {
                 </h2>
             </div>
             <br/>
-            <table className="table">
-                <thead>
-                <tr>
-                    <th>원래 URL</th>
-                    <th>단축 URL</th>
-                    <th>접속 횟수</th>
-                    <th>삭제</th>
-                </tr>
-                </thead>
-                <tbody>
-                {urlList.map(url => (
-                    <tr key={url.id}>
-                        <td>{url.originUrl}</td>
-                        <td>{url.shortenUrl}</td>
-                        <td>{url.requestCount}</td>
-                        <td>
-                            <DeleteUrl id={url.id}
-                                       afterDelete={loadUrls}
-                            />
-                        </td>
+            <div>
+                <table className="table">
+                    <thead>
+                    <tr className="table-primary">
+                        <th>원래 URL</th>
+                        <th>단축 URL</th>
+                        <th>접속 횟수</th>
+                        <th>삭제</th>
                     </tr>
-                ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    {urlList.map(url => (
+                        <tr key={url.id}>
+                            <td className="wrapText">{url.originUrl}</td>
+                            <td className="wrapText">{url.shortenUrl}</td>
+                            <td>{url.requestCount}</td>
+                            <td>
+                                <DeleteUrl id={url.id}
+                                           afterDelete={loadUrls}
+                                />
+                            </td>
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };

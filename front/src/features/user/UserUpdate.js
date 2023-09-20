@@ -7,6 +7,7 @@ import {ENDPOINTS} from "../../common/ApiEndpoints";
 import {getToken, getUserIdFromToken} from "../../common/TokenService";
 import jwt from "jsonwebtoken";
 import TokenValidator from "../../common/TokenValidator";
+import "./UserUpdate.css"
 
 const UserUpdate = () => {
     const [originPassword, setOriginPassword] = useState("");
@@ -46,9 +47,11 @@ const UserUpdate = () => {
     }
 
     return (
-        <div>
+        <div className="userUpdate">
             <TokenValidator />
-            <h2>비밀번호 변경</h2>
+            <h2 className="updateName">비밀번호 변경</h2>
+            <br/>
+            <br/>
             <Form onSubmit={updatePasswordSubmit}>
                 <Form.Group className="mb-3" controlId="currentPassword">
                     <Form.Label>현재 비밀번호</Form.Label>
@@ -79,10 +82,12 @@ const UserUpdate = () => {
                         </Form.Text>
                     )}
                 </Form.Group>
-
-                <Button variant="primary" type="submit" disabled={!isPasswordMatched()}>
-                    비밀번호 변경
-                </Button>
+                <br/>
+                <div className="passwordUpdateButtonContainer">
+                    <Button className="passwordUpdateButton" variant="primary" type="submit" disabled={!isPasswordMatched()}>
+                        비밀번호 변경
+                    </Button>
+                </div>
             </Form>
         </div>
     );

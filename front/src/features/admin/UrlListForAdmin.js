@@ -4,6 +4,7 @@ import {getToken, getUserIdFromToken} from "../../common/TokenService";
 import {ENDPOINTS} from "../../common/ApiEndpoints";
 import DeleteUrl from "../../common/DeleteUrl";
 import TokenValidator from "../../common/TokenValidator";
+import "./UrlListForAdmin.css"
 
 const UrlListForUser = () => {
     const [urlList, setUrlList] = useState([]);
@@ -74,21 +75,26 @@ const UrlListForUser = () => {
 
 
     return (
-        <div>
+        <div className="urlListForAdmin">
             <TokenValidator />
-            <div className="search-bar">
-                <input
-                    type="text"
-                    placeholder="이메일 검색"
-                    value={searchEmail}
-                    onChange={e => setSearchEmail(e.target.value)}
-                />
-                <button type="button" onClick={() => searchEmail ? searchUrlsByEmail(searchEmail) : loadUrls()}>검색</button>
-                <button type="button" onClick={loadUrls}>전체 리스트 보기</button>
+            <div className="searchBar">
+                <button className="btn btn-secondary" type="button" onClick={loadUrls}>전체 리스트 보기</button>
+                <div className="emailInput">
+                    <input
+                        className="emailInputBox"
+                        type="text"
+                        placeholder="이메일 검색"
+                        value={searchEmail}
+                        onChange={e => setSearchEmail(e.target.value)}
+                    />
+                    <button className="emailInputButton"
+                            type="button"
+                            onClick={() => searchEmail ? searchUrlsByEmail(searchEmail) : loadUrls()}>검색</button>
+                </div>
             </div>
             <table className="table">
                 <thead>
-                <tr>
+                <tr className="table-primary">
                     <th>원래 URL</th>
                     <th>단축 URL</th>
                     <th>접속 횟수</th>
@@ -99,7 +105,7 @@ const UrlListForUser = () => {
                 <tbody>
                 {urlList.map(url => (
                     <tr key={url.id}>
-                        <td>
+                        <td className="wrapText">
                             {editingId === url.id ? (
                                 <input
                                     value={editedOriginUrl}
@@ -109,7 +115,7 @@ const UrlListForUser = () => {
                                 <>{url.originUrl}</>
                             )}
                         </td>
-                        <td>{url.shortenUrl}</td>
+                        <td className="wrapText">{url.shortenUrl}</td>
                         <td>{url.requestCount}</td>
                         <td>
                             {editingId === url.id ? (

@@ -1,4 +1,4 @@
-.urlListForUser {
+.userUpdate {
     width: 1440px;
     height: auto;
     padding-top: 50px;
@@ -9,18 +9,24 @@
     font-weight: bolder;
 }
 
-.userUpdateButtonContainer {
+.updateName{
+    font-weight: 700;
+}
+
+.passwordUpdateButtonContainer{
     display: grid;
     place-items: center;
 }
 
-.userUpdateButton {
+.passwordUpdateButton {
+    background-color: #00C4C4;
+    color: black;
     width: 200px;
     transition: background-color 0.3s, color 0.3s;
     font-weight: bolder;
 }
 
-.wrapText {
-    word-wrap: break-word;
-    max-width: 300px;
+.passwordUpdateButton:hover {
+    background-color: #009b9b;
+    color: white;
 }
