@@ -3,7 +3,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
 // 각종 에러에 대한 모달창
-export const ErrorMessageModal = ({ show, onHide, message }) => {
+export const errorMessageModal = ({ show, onHide, message }) => {
     return (
         <Modal show={show} onHide={onHide} centered>
             <Modal.Header closeButton>
@@ -20,7 +20,7 @@ export const ErrorMessageModal = ({ show, onHide, message }) => {
 };
 
 //삭제에 대한 모달창
-export const ConfirmDeleteModal = ({ show, onHide, content, onConfirm }) => {
+export const confirmDeleteModal = ({ show, onHide, content, onConfirm }) => {
     return (
         <Modal show={show} onHide={onHide} centered>
             <Modal.Header closeButton>
@@ -28,11 +28,10 @@ export const ConfirmDeleteModal = ({ show, onHide, content, onConfirm }) => {
             </Modal.Header>
             <Modal.Body>
                 <p>{content}</p>
-                <p>정말 삭제하시겠습니까?</p>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="secondary" onClick={onHide}>취소</Button>
                 <Button variant="danger" onClick={onConfirm}>삭제</Button>
+                <Button variant="secondary" onClick={onHide}>취소</Button>
             </Modal.Footer>
         </Modal>
     );

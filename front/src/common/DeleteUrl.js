@@ -1,8 +1,11 @@
 import axios from "axios";
 import {ENDPOINTS} from "./ApiEndpoints";
 import {getToken} from "./TokenService";
+import {useState} from "react";
+import {confirmDeleteModal} from "./ModalSrvice";
 
-const DeleteUrl = ({id, afterDelete}) => {
+const DeleteUrl = ({id, originUrl, afterDelete}) => {
+    const [showModal, setShowModal] = useState(false);
     const deleteButton = () => {
         axios.delete(ENDPOINTS.DELETE_URL + id,
             {
@@ -20,9 +23,24 @@ const DeleteUrl = ({id, afterDelete}) => {
             });
     };
     return(
-        <button type="button"
+        <>
+            <button
+                type="button"
                 className="btn btn-danger"
-                onClick={deleteButton}>삭제</button>
+                onClick={() => setShowModal(true)}>
+                삭제
+            </button>
+
+            {confirmDeleteModal({
+                show: showModal,
+                onHide: () => setShowModal(false),
+                content: `등록하신 ${originUrl}을 정말로 삭제하시겠습니까?`,
+                onConfirm: () => {
+                    deleteButton();
+                    setShowModal(false);
+                }
+            })}
+        </>
     );
 };
 

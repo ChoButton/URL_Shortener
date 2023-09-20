@@ -125,7 +125,9 @@ const UrlListForUser = () => {
                             )}
                         </td>
                         <td>
-                            <DeleteUrl id={url.id} afterDelete={loadUrls} />
+                            <DeleteUrl id={url.id}
+                                       originUrl={url.originUrl}
+                                       afterDelete={loadUrls} />
                         </td>
                     </tr>
                 ))}

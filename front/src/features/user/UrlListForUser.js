@@ -70,6 +70,7 @@ const UrlListForUser = () => {
                             <td>{url.requestCount}</td>
                             <td>
                                 <DeleteUrl id={url.id}
+                                           originUrl={url.originUrl}
                                            afterDelete={loadUrls}
                                 />
                             </td>
