@@ -35,8 +35,8 @@ const UrlListForUser = () => {
                 setUrlList(response.data);
             })
             .catch(error => {
-                console.error("URL 리스트를 가져오는데 실패했습니다.", error);
-                setMessage("URL 리스트를 가져오는데 실패했습니다.");
+                console.error("등록된 URL이 없습니다.", error);
+                setMessage("등록된 URL이 없습니다.");
                 setShowModal(true);
             });
     };
