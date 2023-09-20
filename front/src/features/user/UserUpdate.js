@@ -8,12 +8,17 @@ import {getToken, getUserIdFromToken} from "../../common/TokenService";
 import jwt from "jsonwebtoken";
 import TokenValidator from "../../common/TokenValidator";
 import "./UserUpdate.css"
+import {MessageModal} from "../../common/ModalSrvice";
 
 const UserUpdate = () => {
     const [originPassword, setOriginPassword] = useState("");
     const [password, setPassword] = useState("");
     const [checkPassword, setCheckPassword] = useState("");
     const [userId, setUserId] = useState(getUserIdFromToken());
+
+    // 모달을 사용하기 위한 상태값
+    const [showModal, setShowModal] = useState(false);
+    const [message, setMessage] = useState("");
 
     const navigate = useNavigate();
 
@@ -31,18 +36,19 @@ const UserUpdate = () => {
                 originPassword: originPassword,
                 newPassword: password
             };
-            console.log("user:", userDTO)
-            console.log("token:", jwt.decode(getToken()))
             const response = await axios.patch(ENDPOINTS.USER_UPDATE, userDTO, {
                 headers: {
                         'Authorization': `Bearer ${getToken()}`
                     }
                 });
 
-            alert("비밀번호가 성공적으로 변경되었습니다.")
+            setMessage("비밀번호가 변경되었습니다.");
+            setShowModal(true);
             navigate(`/userpage`);
         } catch (error) {
             console.error("비밀번호 변경에 실패했습니다.");
+            setMessage("비밀번호 변경에 실패했습니다.");
+            setShowModal(true);
         }
     }
 
@@ -89,6 +95,11 @@ const UserUpdate = () => {
                     </Button>
                 </div>
             </Form>
+            <MessageModal
+                show={showModal}
+                onHide={() => setShowModal(false)}
+                message={message}
+            />
         </div>
     );
 }

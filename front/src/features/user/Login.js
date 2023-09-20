@@ -5,10 +5,15 @@ import {ENDPOINTS} from "../../common/ApiEndpoints";
 import {setToken} from "../../common/TokenService";
 import {Button, Form} from "react-bootstrap";
 import "./Login.css"
+import {MessageModal} from "../../common/ModalSrvice";
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    // 모달을 사용하기 위한 상태값
+    const [showModal, setShowModal] = useState(false);
+    const [message, setMessage] = useState("");
 
     const navigate = useNavigate();
 
@@ -26,13 +31,20 @@ const Login = () => {
             const response = await axios.post(ENDPOINTS.LOGIN, userDTO);
             if(response.data){
                 setToken(response.data);
-                navigate("/");
+                setMessage("로그인 성공");
+                setShowModal(true);
             }else {
                 throw new Error("토큰이 없습니다.");
             }
         }catch (error){
             console.error("로그인 실패", error.message);
+            setMessage("로그인 실패");
+            setShowModal(true);
         }
+    }
+
+    const navigateToLogin = () => {
+        navigate('/');
     }
 
     return (
@@ -68,6 +80,14 @@ const Login = () => {
                     </Button>
                 </div>
             </Form>
+            <MessageModal
+                show={showModal}
+                onHide={() => {
+                    setShowModal(false);
+                    navigateToLogin();
+                }}
+                message={message}
+            />
         </div>
     );
 }
