@@ -1,0 +1,21 @@
+spring:
+  profiles:
+    active: db,jwt
+  datasource:
+    # DB
+    url: ${url}
+    username: ${username_}
+    password: ${password}
+    driver-class-name: ${driver-class-name}
+  # JPA
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+
+jwt:
+  issuer: ${issuer}
+  secret_key: ${secret_key}

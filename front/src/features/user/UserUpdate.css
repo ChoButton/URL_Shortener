@@ -1,0 +1,37 @@
+.userUpdate {
+    width: 1440px;
+    height: auto;
+    padding-top: 50px;
+    padding-left: 240px;
+    padding-right: 240px;
+    display: grid;
+    place-items: center;
+    font-weight: bolder;
+}
+
+.updateName{
+    font-weight: 700;
+}
+
+.passwordUpdateButtonContainer{
+    display: grid;
+    place-items: center;
+}
+
+.passwordUpdateButton {
+    background-color: #00C4C4;
+    color: black;
+    width: 200px;
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: bolder;
+}
+
+.passwordUpdateButton:hover {
+    background-color: #009b9b;
+    color: white;
+}
+
+.userAccountDeleteButtonContainer{
+    display: grid;
+    place-items: center;
+}
