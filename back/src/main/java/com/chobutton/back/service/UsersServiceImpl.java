@@ -117,10 +117,13 @@ public class UsersServiceImpl implements UsersService{
 
             // url등록후 회원가입 진행시 등록된 url에 userId 업데이트
             if(signupUser.getOriginUrl() != null){
-                Url url = urlRepository.findByOriginUrl(signupUser.getOriginUrl());
+                if (!signupUser.getOriginUrl().startsWith("http://") && !signupUser.getOriginUrl().startsWith("https://")) {
+                    signupUser.setOriginUrl("http://" + signupUser.getOriginUrl());
+                }
+                String updateUrl = signupUser.getOriginUrl();
+                Url url = urlRepository.findByOriginUrl(updateUrl);
                 url.updateUserId(userId);
             }
-
             return ResponseEntity.ok().body("회원가입이 정상적으로 완료되었습니다.");
         }else {
             throw new BadRequestException("이미 가입된 사용자 입니다.");

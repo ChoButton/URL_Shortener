@@ -19,8 +19,20 @@
 .shortnee {
     color: #00C4C4;
     font-family: Inter;
-    font-size: 96px;
+    font-size: 70px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+}
+
+#loginButton {
+    background-color: #00C4C4;
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+    margin-right: 10px;
+
+}
+#loginButton:hover{
+    background-color: #009b9b;
+    color: white;
 }

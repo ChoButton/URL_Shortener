@@ -1,0 +1,26 @@
+.urlListForUser {
+    width: 1440px;
+    height: auto;
+    padding-top: 50px;
+    padding-left: 240px;
+    padding-right: 240px;
+    display: grid;
+    place-items: center;
+    font-weight: bolder;
+}
+
+.userUpdateButtonContainer {
+    display: grid;
+    place-items: center;
+}
+
+.userUpdateButton {
+    width: 200px;
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: bolder;
+}
+
+.wrapText {
+    word-wrap: break-word;
+    max-width: 300px;
+}
