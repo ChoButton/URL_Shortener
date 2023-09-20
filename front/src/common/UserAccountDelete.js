@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import axios from "axios";
 import {ENDPOINTS} from "./ApiEndpoints";
-import {getToken} from "./TokenService";
+import {deleteToken, getToken} from "./TokenService";
 import {ConfirmUserAccountDeleteModal, MessageModal} from "./ModalSrvice";
 import {useNavigate} from "react-router-dom";
 
@@ -31,6 +31,7 @@ const UserAccountDelete = ({ id }) => {
     };
 
     const onAfterDelete = () => {
+        deleteToken();
         navigate("/")
     };
 
