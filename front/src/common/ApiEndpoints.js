@@ -8,6 +8,7 @@ export const ENDPOINTS = {
     LOGIN: `${API_BASE}/login`,
     SIGNUP: `${API_BASE}/signup`,
     USER_UPDATE: `${API_BASE}/update/password`,
+    USER_DELETE: `${API_BASE}/delete/`, // userId 값이 뒤에 붙어야함
     CREATE_SHORTEN_URL: `${API_BASE}/url/user/create`,
     URL_LIST_FOR_USER: `${API_BASE}/url/user/all/`,
     DELETE_URL: `${API_BASE}/url/delete/`, // urlId 값이 뒤에 붙어야함

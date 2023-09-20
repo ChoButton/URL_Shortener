@@ -9,6 +9,7 @@ import jwt from "jsonwebtoken";
 import TokenValidator from "../../common/TokenValidator";
 import "./UserUpdate.css"
 import {MessageModal} from "../../common/ModalSrvice";
+import UserAccountDelete from "../../common/UserAccountDelete";
 
 const UserUpdate = () => {
     const [originPassword, setOriginPassword] = useState("");
@@ -95,6 +96,11 @@ const UserUpdate = () => {
                     </Button>
                 </div>
             </Form>
+            <div className="userAccountDeleteButtonContainer">
+                <br/>
+                <br/>
+                <UserAccountDelete id={userId} />
+            </div>
             <MessageModal
                 show={showModal}
                 onHide={() => setShowModal(false)}
