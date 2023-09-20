@@ -36,3 +36,21 @@ export const ConfirmDeleteModal = ({ show, onHide, content, onConfirm }) => {
         </Modal>
     );
 };
+
+//탈퇴에 대한 모달창
+export const ConfirmUserAccountDeleteModal = ({ show, onHide, content, onConfirm }) => {
+    return (
+        <Modal show={show} onHide={onHide} centered>
+            <Modal.Header closeButton>
+                <Modal.Title>탈퇴 확인</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <p>{content}</p>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button variant="danger" onClick={onConfirm}>탈퇴</Button>
+                <Button variant="secondary" onClick={onHide}>취소</Button>
+            </Modal.Footer>
+        </Modal>
+    );
+};

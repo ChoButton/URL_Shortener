@@ -30,3 +30,8 @@
     background-color: #009b9b;
     color: white;
 }
+
+.userAccountDeleteButtonContainer{
+    display: grid;
+    place-items: center;
+}
