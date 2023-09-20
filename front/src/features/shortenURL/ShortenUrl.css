@@ -1,7 +1,7 @@
-.shotrenUrlContainer{
+.shotrenUrl{
     width: 1440px;
     height: auto;
-    padding-top: 150px;
+    padding-top: 100px;
     padding-left: 240px;
     padding-right: 240px;
     justify-content: center;
@@ -18,14 +18,13 @@
 
 .shotrenUrlTopText-s {
     color: #00C4C4;
-    font-family: Inter;
     font-size: 48px;
     font-style: normal;
-    font-weight: 800;
+    font-weight: 1000;
     line-height: normal;
 }
 
-.shotrenUrlInputUrlBox {
+.shotrenUrlInputBox {
     width: 801px;
     height: 50px;
     flex-shrink: 0;
@@ -36,22 +35,57 @@
     padding-right: 403px;
 }
 
-.shotrenUrlInputUrlButton {
+.shotrenUrlInputButton {
     width: 130px;
     border-radius: 0px 50px 50px 0px;
     height: 50px;
-    border: 2px solid #00C4C4;
+    border: solid #00C4C4;
     background: #00C4C4;
     color: #FFFFFF;
-    font-size: 10px;
+    font-size: 17px;
 }
 
-.shotrenUrlButttomText{
+.shotrenUrlInputButton:hover{
+    background-color: #009b9b;
+    border: solid #009b9b;
+}
+
+.shotrenUrlBottomText{
     color: #000;
     text-align: center;
-    font-family: Inter;
     font-size: 20px;
     font-style: normal;
     font-weight: 800;
-    line-height: normal;
+}
+
+.shortenedUrlResult{
+    color: #000;
+    text-align: center;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 800;
+}
+
+.addUrlButton {
+    display: grid;
+    place-items: center;
+}
+
+#addUrlButton {
+    font-weight: bolder;
+}
+
+.addUrlAftersignupButton {
+    display: grid;
+    place-items: center;
+}
+
+#addUrlAfterSignupButton {
+    font-weight: bolder;
+    width: 125px;
+}
+
+.urlWarning{
+    color: red;
+    font-weight: bolder;
 }

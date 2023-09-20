@@ -5,8 +5,13 @@ import {Form} from "react-bootstrap";
 import {Button} from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import {ENDPOINTS} from "../../common/ApiEndpoints";
+import { useLocation } from "react-router-dom";
+import "./Signup.css"
 
-const Signup = ({userOriginUrl = null}) => {
+const Signup = () => {
+    const location = useLocation();
+    const userOriginUrl = location.state?.userOriginUrl || null;
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [checkPassword, setCheckPassword] = useState("");
@@ -45,8 +50,10 @@ const Signup = ({userOriginUrl = null}) => {
     }
 
     return (
-        <div>
-            <h2>회원가입</h2>
+        <div className="signup">
+            <h2 className="signupName">회원가입</h2>
+            <br/>
+            <br/>
             <Form onSubmit={signupSubmit}>
                 <Form.Group className="mb-3" controlId="exampleFormControlInput1">
                     <Form.Label>이메일 주소</Form.Label>
@@ -79,10 +86,15 @@ const Signup = ({userOriginUrl = null}) => {
                         </Form.Text>
                     )}
                 </Form.Group>
-
-                <Button variant="primary" type="submit" disabled={!isPasswordMatched()}>
-                    회원가입
-                </Button>
+                <br/>
+                <div className="signupButtonContainer">
+                    <Button variant="primary"
+                            type="submit"
+                            disabled={!isPasswordMatched()}
+                            className="signupButton">
+                        회원가입
+                    </Button>
+                </div>
             </Form>
         </div>
     );

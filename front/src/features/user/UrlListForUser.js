@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {getToken, getUserIdFromToken} from "../../common/TokenService";
+import {getToken, getUserEmailFromToken, getUserIdFromToken} from "../../common/TokenService";
 import {ENDPOINTS} from "../../common/ApiEndpoints";
 import DeleteUrl from "../../common/DeleteUrl";
 import TokenValidator from "../../common/TokenValidator";
+import {Button} from "react-bootstrap";
+import {useNavigate} from "react-router-dom";
+import "./UrlListForUser.css";
 
 const UrlListForUser = () => {
     const [urlList, setUrlList] = useState([]);
     const [userId, setUserId] = useState(getUserIdFromToken());
+    const [email, setEmail] = useState(getUserEmailFromToken());
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         loadUrls();
@@ -31,9 +37,21 @@ const UrlListForUser = () => {
 
 
     return (
-        <div>
+        <div className="urlListForUser">
             <TokenValidator />
-            <table>
+            <div>
+                <h2>
+                    {email}님이 등록하신 URL목록입니다.
+                    <div className="userUpdateButtonContainer">
+                        <Button onClick={() => {navigate("/userUpdate")}}
+                                className="userUpdateButton">
+                            회원정보수정
+                        </Button>
+                    </div>
+                </h2>
+            </div>
+            <br/>
+            <table className="table">
                 <thead>
                 <tr>
                     <th>원래 URL</th>

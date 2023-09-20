@@ -9,6 +9,7 @@ const UrlListForUser = () => {
     const [urlList, setUrlList] = useState([]);
     const [editingId, setEditingId] = useState(null);
     const [editedOriginUrl, setEditedOriginUrl] = useState("");
+    const [searchEmail, setSearchEmail] = useState("");
 
     useEffect(() => {
         loadUrls();
@@ -56,11 +57,36 @@ const UrlListForUser = () => {
             });
     }
 
+    const searchUrlsByEmail = (email) => {
+        // 이메일을 기반으로 URL 리스트를 검색하는 함수
+        axios.get(ENDPOINTS.URL_LIST_BY_EMAIL_FOR_ADMIN + searchEmail, {
+            headers: {
+                'Authorization': 'Bearer ' + getToken()
+            }
+        })
+            .then(response => {
+                setUrlList(response.data);
+            })
+            .catch(error => {
+                console.error("이메일로 URL 리스트를 가져오는데 실패했습니다.", error);
+            });
+    };
+
 
     return (
         <div>
             <TokenValidator />
-            <table>
+            <div className="search-bar">
+                <input
+                    type="text"
+                    placeholder="이메일 검색"
+                    value={searchEmail}
+                    onChange={e => setSearchEmail(e.target.value)}
+                />
+                <button type="button" onClick={() => searchEmail ? searchUrlsByEmail(searchEmail) : loadUrls()}>검색</button>
+                <button type="button" onClick={loadUrls}>전체 리스트 보기</button>
+            </div>
+            <table className="table">
                 <thead>
                 <tr>
                     <th>원래 URL</th>

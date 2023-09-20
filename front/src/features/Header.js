@@ -36,13 +36,13 @@ const Header = () => {
             <div>
                 {!isTokenValid() ? (
                     <>
-                        <Link to="/login" className="btn btn-primary btn-lg">로그인</Link>
-                        <Link to="/signup" className="btn btn-secondary btn-lg">회원가입</Link>
+                        <Link to="/login" className="btn btn-lg" id="loginButton">로그인</Link>
+                        <Link to="/signup" className="btn btn-primary btn-lg" id="signupButton">회원가입</Link>
                     </>
                 ) : (
                     <>
-                        <button onClick={handleMyPageClick} className="btn btn-info btn-lg">
-                            {hasAdminRole() ? "Admin Page" : "My Page"}
+                        <button onClick={handleMyPageClick} className="btn btn-lg" id="loginButton">
+                            {hasAdminRole() ? "관리자 페이지" : "마이 페이지"}
                         </button>
                         <Logout />
                     </>

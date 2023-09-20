@@ -39,7 +39,7 @@ const UserUpdate = () => {
                 });
 
             alert("비밀번호가 성공적으로 변경되었습니다.")
-            //navigate(`/userinfo/${userId}`);
+            navigate(`/userpage`);
         } catch (error) {
             console.error("비밀번호 변경에 실패했습니다.");
         }
