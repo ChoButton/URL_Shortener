@@ -46,7 +46,7 @@ base56 인코딩 방식을 사용
 
 ---
 ### DB 다이어그램_Lucidchart
-![DB 다이어그램](/README\DB.png)
+![DB 다이어그램](/README/DB.png)
 
 ---
 ### 페이지 임시 레이아웃_Figma
