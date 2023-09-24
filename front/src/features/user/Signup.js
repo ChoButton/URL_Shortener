@@ -48,13 +48,15 @@ const Signup = () => {
 
             setMessage("회원가입이 완료되었습니다.");
             setShowModal(true);
-            // 회원가입 완료후 메인페이지로 이동
-            navigate("/");
         }catch (error){
             console.error("회원가입에 실패했습니다.");
             setMessage("회원가입에 실패했습니다.");
             setShowModal(true);
         }
+    }
+
+    const navigateToMainPage = () => {
+        navigate('/');
     }
 
     return (
@@ -109,7 +111,10 @@ const Signup = () => {
             </Form>
             <MessageModal
                 show={showModal}
-                onHide={() => setShowModal(false)}
+                onHide={() => {
+                    setShowModal(false)
+                    navigateToMainPage()
+                }}
                 message={message}
             />
         </div>

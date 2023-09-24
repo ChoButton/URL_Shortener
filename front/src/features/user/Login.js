@@ -43,7 +43,7 @@ const Login = () => {
         }
     }
 
-    const navigateToLogin = () => {
+    const navigateToMainPage = () => {
         navigate('/');
     }
 
@@ -85,7 +85,7 @@ const Login = () => {
                 show={showModal}
                 onHide={() => {
                     setShowModal(false);
-                    navigateToLogin();
+                    navigateToMainPage();
                 }}
                 message={message}
             />
