@@ -4,8 +4,6 @@
 ## 당신을 기억하는 가장 짧은 방법 SHORTNEE
 프로젝트 개발노트   
 https://quark-witness-2d3.notion.site/3ed1993c858f4ba19146a4b4a2becc50?pvs=4   
-깃허브   
-https://github.com/ChoButton/URL_Shortener
 ---
 
 ### 컨셉
