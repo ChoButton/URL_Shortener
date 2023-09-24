@@ -3,7 +3,6 @@ import axios from 'axios';
 import {getToken, getUserEmailFromToken, getUserIdFromToken} from "../../common/TokenService";
 import {ENDPOINTS} from "../../common/ApiEndpoints";
 import DeleteUrl from "../../common/DeleteUrl";
-import TokenValidator from "../../common/TokenValidator";
 import {Button} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 import "./UrlListForUser.css";
@@ -45,7 +44,6 @@ const UrlListForUser = () => {
 
     return (
         <div className="urlListForUser">
-            <TokenValidator />
             <div>
                 <h2>
                     {email}님이 등록하신 URL목록입니다.

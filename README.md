@@ -40,9 +40,11 @@ base56 인코딩 방식을 사용
 1. CSS 및 리액트를 더 공부하여 디자인 개선
 2. 리프레쉬토큰 구현
 3. 각종 에러에 대한 로그기록 필요
-4. 전체 리스트에 대한 페이징 처리 필요
-5. 전체적인 코드 리펙터링
-6. 배포
+4. 이메일 인증 서비스 구현
+5. 비밀번호 특수문자 조합 구현
+6. 전체 리스트에 대한 페이징 처리 필요
+7. 전체적인 코드 리펙터링
+8. 배포
 
 ---
 ### DB 다이어그램_Lucidchart
@@ -54,11 +56,4 @@ base56 인코딩 방식을 사용
 
 ---
 ### 실제 구동화면
-![](/README/main.png)
-![](/README/login.png)
-![](/README/signup.png)
-![](/README/mypage.png)
-![](/README/nonUser.png)
-![](/README/succesShortenUrl.png)
-![](/README/userUpdate.png)
-![](/README/adminPage.png)
+![구동화면](/README/구동화면.gif)
