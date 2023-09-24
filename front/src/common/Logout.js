@@ -15,7 +15,7 @@ const Logout = () => {
         setShowModal(true);
     }
 
-    const navigateToLogin = () => {
+    const navigateToMainPage = () => {
         navigate('/login');
     }
 
@@ -28,7 +28,7 @@ const Logout = () => {
                 show={showModal}
                 onHide={() => {
                     setShowModal(false);
-                    navigateToLogin();
+                    navigateToMainPage();
                 }}
                 message={message}
             />

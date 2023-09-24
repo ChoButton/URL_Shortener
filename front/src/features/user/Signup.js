@@ -48,13 +48,15 @@ const Signup = () => {
 
             setMessage("회원가입이 완료되었습니다.");
             setShowModal(true);
-            // 회원가입 완료후 메인페이지로 이동
-            navigate("/");
         }catch (error){
             console.error("회원가입에 실패했습니다.");
             setMessage("회원가입에 실패했습니다.");
             setShowModal(true);
         }
+    }
+
+    const navigateToMainPage = () => {
+        navigate('/');
     }
 
     return (
@@ -75,18 +77,21 @@ const Signup = () => {
                 <Form.Group className="mb-3" controlId="inputPassword5">
                     <Form.Label>비밀번호</Form.Label>
                     <Form.Control type="password"
-                                  maxLength={8}
+                                  minLength={8}
+                                  maxLength={12}
                                   value={password}
                                   onChange={(e) => setPassword(e.target.value)} />
                     <Form.Text id="passwordHelpBlock" muted>
-                        비밀번호는 최대 8자리까지 입력 가능합니다.
+                        비밀번호는 최초 8자리 최대 12자리까지 입력 가능합니다.
                     </Form.Text>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="confirmPassword5">
                     <Form.Label>비밀번호 확인</Form.Label>
                     <Form.Control type="password"
-                                  maxLength={8} value={checkPassword}
+                                  minLength={8}
+                                  maxLength={12}
+                                  value={checkPassword}
                                   onChange={(e) => setCheckPassword(e.target.value)} />
                     {checkPassword && !isPasswordMatched() && (
                         <Form.Text style={{ color: 'red' }}>
@@ -106,7 +111,10 @@ const Signup = () => {
             </Form>
             <MessageModal
                 show={showModal}
-                onHide={() => setShowModal(false)}
+                onHide={() => {
+                    setShowModal(false)
+                    navigateToMainPage()
+                }}
                 message={message}
             />
         </div>
