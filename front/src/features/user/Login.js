@@ -65,12 +65,13 @@ const Login = () => {
                 <Form.Group className="mb-3" controlId="inputPassword5">
                     <Form.Label>비밀번호</Form.Label>
                     <Form.Control type="password"
-                                  maxLength={8}
+                                  minLength={8}
+                                  maxLength={12}
                                   value={password}
                                   onChange={(e) => setPassword(e.target.value)}
                                   placeholder="비밀번호를 입력해주세요" />
                     <Form.Text id="passwordHelpBlock" muted>
-                        비밀번호는 최대 8자리까지 입력 가능합니다.
+                        비밀번호는 최초 8자리 최대 12자리까지 입력 가능합니다.
                     </Form.Text>
                 </Form.Group>
                 <br/>

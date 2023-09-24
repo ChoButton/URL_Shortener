@@ -75,18 +75,21 @@ const Signup = () => {
                 <Form.Group className="mb-3" controlId="inputPassword5">
                     <Form.Label>비밀번호</Form.Label>
                     <Form.Control type="password"
-                                  maxLength={8}
+                                  minLength={8}
+                                  maxLength={12}
                                   value={password}
                                   onChange={(e) => setPassword(e.target.value)} />
                     <Form.Text id="passwordHelpBlock" muted>
-                        비밀번호는 최대 8자리까지 입력 가능합니다.
+                        비밀번호는 최초 8자리 최대 12자리까지 입력 가능합니다.
                     </Form.Text>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="confirmPassword5">
                     <Form.Label>비밀번호 확인</Form.Label>
                     <Form.Control type="password"
-                                  maxLength={8} value={checkPassword}
+                                  minLength={8}
+                                  maxLength={12}
+                                  value={checkPassword}
                                   onChange={(e) => setCheckPassword(e.target.value)} />
                     {checkPassword && !isPasswordMatched() && (
                         <Form.Text style={{ color: 'red' }}>
