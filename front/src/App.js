@@ -16,6 +16,7 @@ import Header from "./features/Header";
 function App() {
   return (
       <BrowserRouter>
+          <TokenValidator />
           <Header />
           <div>
               <Routes>

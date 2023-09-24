@@ -50,6 +50,9 @@ const ShortenUrl = () => {
         navigate("/signup", { state: { userOriginUrl: originUrl } });
     }
 
+    console.log(isNonMember());
+    console.log(localStorage.getItem("token"));
+
     return (
         <div className="shotrenUrl">
             <h1 className="shotrenUrlTopText">당신을 기억하는 가장 짧은 방법 <span className="shotrenUrlTopText-s">SHORTNEE</span></h1>
@@ -68,13 +71,13 @@ const ShortenUrl = () => {
                            className="shotrenUrlInputBox"
                     />
                     <button onClick={shortenUrlSubmit} className="shotrenUrlInputButton">링크단축</button>
-                    {isNonMember() && (
-                        <h2 className="shotrenUrlBottomText">
-                            <br />
-                            회원가입후 서비스를 이용하실 경우 단축한 URL목록 및 접속 횟수를 볼수 있습니다.
-                        </h2>
-                    )}
                 </>
+            )}
+            {isNonMember() && (
+                <h2 className="shotrenUrlBottomText">
+                    <br />
+                    회원가입후 서비스를 이용하실 경우 단축한 URL목록 및 접속 횟수를 볼수 있습니다.
+                </h2>
             )}
             {isNonMember() && shortenedUrl && (
                 <div className="addUrlAftersignupButton">

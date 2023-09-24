@@ -67,7 +67,7 @@ export const getRolesFromToken = () => {
 export const isTokenValid = () => {
     const token = localStorage.getItem("token");
 
-    if (!token) return false;
+    if (!token) return null;
 
     try {
         const decoded = jwt.decode(token);

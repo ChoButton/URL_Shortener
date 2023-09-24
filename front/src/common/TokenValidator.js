@@ -12,7 +12,12 @@ const TokenValidator = () => {
             return;
         }
 
-        if(!isTokenValid()){
+        const tokenStatus = isTokenValid();
+
+        // 토큰이 없는 경우(비회원) 아무런 동작도 하지 않음
+        if(tokenStatus === null) return;
+
+        if(!tokenStatus){
             alert("로그인 시간이 만료되었습니다. 다시 로그인해주세요.");
             deleteToken();
             navigate('/login');

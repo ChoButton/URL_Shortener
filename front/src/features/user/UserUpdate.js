@@ -5,8 +5,6 @@ import {Form, Button} from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import {ENDPOINTS} from "../../common/ApiEndpoints";
 import {getToken, getUserIdFromToken} from "../../common/TokenService";
-import jwt from "jsonwebtoken";
-import TokenValidator from "../../common/TokenValidator";
 import "./UserUpdate.css"
 import {MessageModal} from "../../common/ModalSrvice";
 import UserAccountDelete from "../../common/UserAccountDelete";
@@ -55,7 +53,6 @@ const UserUpdate = () => {
 
     return (
         <div className="userUpdate">
-            <TokenValidator />
             <h2 className="updateName">비밀번호 변경</h2>
             <br/>
             <br/>

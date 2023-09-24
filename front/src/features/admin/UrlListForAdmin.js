@@ -3,7 +3,6 @@ import axios from 'axios';
 import {getToken} from "../../common/TokenService";
 import {ENDPOINTS} from "../../common/ApiEndpoints";
 import DeleteUrl from "../../common/DeleteUrl";
-import TokenValidator from "../../common/TokenValidator";
 import "./UrlListForAdmin.css"
 import {MessageModal} from "../../common/ModalSrvice";
 
@@ -89,7 +88,6 @@ const UrlListForUser = () => {
 
     return (
         <div className="urlListForAdmin">
-            <TokenValidator />
             <div className="searchBar">
                 <button className="btn btn-secondary" type="button" onClick={loadUrls}>전체 리스트 보기</button>
                 <div className="emailInput">
